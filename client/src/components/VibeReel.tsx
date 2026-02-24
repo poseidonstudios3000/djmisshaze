@@ -6,12 +6,12 @@ import corporateVideo1 from "@assets/videos/corporate/DJ-Miss-Haze-Corporate-and
 import corporateVideo2 from "@assets/videos/corporate/DJ-Miss-Haze-Corporate-Branding-DJ-Converse.mp4";
 import corporateVideo3 from "@assets/videos/corporate/DJ-Miss-Haze-influencer-event-in-chicago-gig.mp4";
 import corporateVideo4 from "@assets/videos/corporate/Denver-Corporate-Event-DJ.mp4";
-import weddingVideo1 from "@assets/videos/wedding/wedding-video-01.mp4";
-import weddingVideo2 from "@assets/videos/wedding/wedding-video-02.mp4";
-import weddingVideo3 from "@assets/videos/wedding/wedding-video-03.mp4";
-import weddingVideo4 from "@assets/videos/wedding/wedding-video-04.mp4";
-import weddingVideo5 from "@assets/videos/wedding/wedding-video-05.mp4";
-import weddingVideo6 from "@assets/videos/wedding/wedding-video-06.mp4";
+import weddingVideo1 from "@assets/videos/wedding/DJ-Miss-Haze-Wedding-DJ-Reel.mp4";
+import weddingVideo2 from "@assets/videos/wedding/DJ-Miss-Haze-Wedding-DJ-Colorado-Reel.mp4";
+import weddingVideo3 from "@assets/videos/wedding/DJ-Miss-Haze-Top-10-Wedding-Songs-of-2025.mp4";
+import weddingVideo4 from "@assets/videos/wedding/DJ-Miss-Haze-Black-Canyon-Inn-Colorado-Wedding-DJ.mp4";
+import weddingVideo5 from "@assets/videos/wedding/360-Photo-Booth-Add-On-Video-Reel.mp4";
+import weddingVideo6 from "@assets/videos/wedding/DJ-Miss-Haze-2026-Wedding-DJ-Reel-4-Eleven-Fort-Worth.mp4";
 
 const corporateVideos = [
   { id: 1, src: corporateVideo1, title: "Corporate & Influencer Events" },
@@ -26,7 +26,7 @@ const weddingVideos = [
   { id: 3, src: weddingVideo3, title: "Top 10 Wedding Songs 2025" },
   { id: 4, src: weddingVideo4, title: "Black Canyon Inn Wedding" },
   { id: 5, src: weddingVideo5, title: "360 Photo Booth Add-On" },
-  { id: 6, src: weddingVideo6, title: "360 Photo Booth Experience" },
+  { id: 6, src: weddingVideo6, title: "4 Eleven Fort Worth Wedding" },
 ];
 
 export function VibeReel() {

@@ -131,7 +131,7 @@ export async function registerRoutes(
 
         try {
           await resend.emails.send({
-            from: "DJ Miss Haze Bookings <bookings@djhazedev.replit.app>",
+            from: "DJ Miss Haze Bookings <onboarding@resend.dev>",
             to: "info@djmisshaze.com",
             subject: `New Booking Inquiry: ${input.eventType} in ${input.location}`,
             html: `

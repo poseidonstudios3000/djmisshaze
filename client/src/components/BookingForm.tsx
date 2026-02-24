@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 const bookingSchema = z.object({
   eventType: z.string().min(1, "Event type is required"),
@@ -26,6 +28,7 @@ type BookingFormData = z.infer<typeof bookingSchema>;
 
 export function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
@@ -43,15 +46,25 @@ export function BookingForm() {
 
   const onSubmit = async (data: BookingFormData) => {
     try {
-      // TODO: Send to backend
-      console.log("Form data:", data);
+      await apiRequest("POST", "/api/inquiries", {
+        eventType: data.eventType,
+        location: data.location,
+        date: data.date,
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone,
+      });
       setSubmitted(true);
       setTimeout(() => {
         form.reset();
         setSubmitted(false);
       }, 3000);
     } catch (error) {
-      console.error("Submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send booking request. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
