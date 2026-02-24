@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, PartyPopper, Users, Sparkles, Music, Heart, Clock } from "lucide-react";
 
-import img1 from "@assets/JEDunnChristmasParty2024PRINT-1207_1768515859617.jpg";
-import img2 from "@assets/JEDunnChristmasParty2024PRINT-1255_1768515859615.jpg";
-import img3 from "@assets/DSC02920_1768515859620.jpg";
-import img4 from "@assets/DSC02938_1768515859619.jpg";
+import img1 from "@assets/private/gallery/private-01.webp";
+import img2 from "@assets/private/gallery/private-02.webp";
+import img3 from "@assets/private/gallery/private-03.webp";
+import img4 from "@assets/private/gallery/private-04.webp";
 
 const slides = [
   { src: img1, alt: "Holiday Party DJ Experience" },

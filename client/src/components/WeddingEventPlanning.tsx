@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import slide1 from "@assets/Wedding-DJ-Chicago-DJ-Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-1.png";
-import slide2 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-2.png";
-import slide3 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-3.png";
-import slide4 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-4.png";
-import slide5 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-5.png";
-import slide6 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-6.png";
-import slide7 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-7.png";
-import slide8 from "@assets/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-8.png";
+import slide1 from "@assets/wedding/slides/slide-01.webp";
+import slide2 from "@assets/wedding/slides/slide-02.webp";
+import slide3 from "@assets/wedding/slides/slide-03.webp";
+import slide4 from "@assets/wedding/slides/slide-04.webp";
+import slide5 from "@assets/wedding/slides/slide-05.webp";
+import slide6 from "@assets/wedding/slides/slide-06.webp";
+import slide7 from "@assets/wedding/slides/slide-07.webp";
+import slide8 from "@assets/wedding/slides/slide-08.webp";
 
 const slides = [
   { src: slide1, alt: "5 Things Couples Don't Realize When Booking a Wedding DJ" },

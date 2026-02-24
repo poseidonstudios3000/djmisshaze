@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import infosheet1 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet_1769548310856.png";
-import infosheet2 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Chicago_1769548310854.png";
-import infosheet3 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Chicago-I_1769548310855.png";
-import infosheet4 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Denver_1769548310855.png";
-import infosheet5 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Events_1769548310856.png";
-import infosheet6 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-CTA_1769548310855.png";
-import infosheet7 from "@assets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Testimoni_1769548310856.png";
-import infosheet8 from "@assets/DJ-Miss-Haze-Event-Activation-Testimonial-2_1769548310856.png";
+import infosheet1 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet.webp";
+import infosheet2 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Chicago.webp";
+import infosheet3 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Chicago-IL.webp";
+import infosheet4 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Denver.webp";
+import infosheet5 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Events.webp";
+import infosheet6 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-CTA.webp";
+import infosheet7 from "@assets/corporate/infosheets/DJ-Miss-Haze-Corporate-DJ-Brand-Activation-Infosheet-Testimonial.webp";
+import infosheet8 from "@assets/corporate/infosheets/DJ-Miss-Haze-Event-Activation-Testimonial-2.webp";
 
 const infosheets = [
   { src: infosheet1, alt: "How the right DJ can boost your brand" },

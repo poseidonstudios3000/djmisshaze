@@ -9,13 +9,13 @@ import { FAQ } from "@/components/FAQ";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { CompactBookingForm } from "@/components/CompactBookingForm";
 import { EventSignatureSection } from "@/components/EventSignatureSection";
-import chicagoImg from "@assets/generated_images/chicago_skyline_dj_backdrop.png";
-import dallasImg from "@assets/generated_images/dallas_skyline_dj_backdrop.png";
-import denverImg from "@assets/generated_images/denver_skyline_dj_backdrop.png";
+import chicagoImg from "@assets/location/city_backdrops/chicago.webp";
+import dallasImg from "@assets/location/city_backdrops/dallas.webp";
+import denverImg from "@assets/location/city_backdrops/denver.webp";
 
-import res1 from "@assets/stock_images/modern_event_venue_a_01a0bdf0.jpg";
-import res2 from "@assets/stock_images/modern_event_venue_a_1d474530.jpg";
-import res3 from "@assets/stock_images/modern_event_venue_a_c5227e74.jpg";
+import res1 from "@assets/location/venues/venue-01.webp";
+import res2 from "@assets/location/venues/venue-02.webp";
+import res3 from "@assets/location/venues/venue-03.webp";
 
 const cityImages: Record<string, string> = {
   chicago: chicagoImg,

@@ -3,40 +3,48 @@ import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
-// Wedding gallery images (new set)
-import weddingImg1 from "@assets/Ada-Street-Chicago-Wedding-DJ-Miss-Haze.jpg";
-import weddingImg2 from "@assets/Broadmoor-Colorado-Springs-Wedding-DJ-Miss-Haze.jpg";
-import weddingImg3 from "@assets/dj-miss-haze-best-wedding-dj-book-now.jpg";
-import weddingImg4 from "@assets/dj-miss-haze-best-wedding-dj-chicago.jpg";
-import weddingImg5 from "@assets/DJ-Miss-Haze-club-type-wedding-bride-new.jpg";
-import weddingImg6 from "@assets/dj-miss-haze-letting-bride-spin-new.webp";
-import weddingImg7 from "@assets/DJ-Miss-Haze-newlyweds-1st-Dance-new.jpg";
-import weddingImg8 from "@assets/DJ-Miss-Haze-wedding-DJ-bouquet-toss-new.jpg";
-import weddingImg9 from "@assets/dj-miss-haze-wedding-dj-chicago-dallas-denver-new.jpg";
-import weddingImg10 from "@assets/DJ-Miss-Haze-Wedding-DJ-Colorado-new.jpg";
-import weddingImg11 from "@assets/dj-miss-haze-wedding-dj-in-colorado.jpg";
-import weddingImg12 from "@assets/dj-miss-haze-wedding-dj-top-rated-new.jpg";
-import weddingImg13 from "@assets/DJ-Miss-Haze-Wedding-DJ-Vibe.webp";
-import weddingImg14 from "@assets/DJ-Miss-Haze-Wedding-Venue.jpg";
-import weddingImg15 from "@assets/Estes-Park-Resort-CO-Wedding-couple.jpg";
-import weddingImg16 from "@assets/Estes-Park-Resort-dancing-bride.jpg";
-import weddingImg17 from "@assets/Estes-Park-Resort-Wedding-new.jpg";
-import weddingImg18 from "@assets/hype-bride-wedding-reception-new.jpg";
-import weddingImg19 from "@assets/The-Gardenia-Venue-Texas-Wedding.jpeg";
-import weddingImg20 from "@assets/Wedding-DJ-Three-Peaks-Ranch-Colorado.jpg";
+// Wedding gallery images
+import weddingImg1 from "@assets/wedding/gallery/wedding-01.webp";
+import weddingImg2 from "@assets/wedding/gallery/wedding-02.webp";
+import weddingImg3 from "@assets/wedding/gallery/wedding-03.webp";
+import weddingImg4 from "@assets/wedding/gallery/wedding-04.webp";
+import weddingImg5 from "@assets/wedding/gallery/wedding-05.webp";
+import weddingImg6 from "@assets/wedding/gallery/wedding-06.webp";
+import weddingImg7 from "@assets/wedding/gallery/wedding-07.webp";
+import weddingImg8 from "@assets/wedding/gallery/wedding-08.webp";
+import weddingImg9 from "@assets/wedding/gallery/wedding-09.webp";
+import weddingImg10 from "@assets/wedding/gallery/wedding-10.webp";
+import weddingImg11 from "@assets/wedding/gallery/wedding-11.webp";
+import weddingImg12 from "@assets/wedding/gallery/wedding-12.webp";
+import weddingImg13 from "@assets/wedding/gallery/wedding-13.webp";
+import weddingImg14 from "@assets/wedding/gallery/wedding-14.webp";
+import weddingImg15 from "@assets/wedding/gallery/wedding-15.webp";
+import weddingImg16 from "@assets/wedding/gallery/wedding-16.webp";
+import weddingImg17 from "@assets/wedding/gallery/wedding-17.webp";
+import weddingImg18 from "@assets/wedding/gallery/wedding-18.webp";
+import weddingImg19 from "@assets/wedding/gallery/wedding-19.webp";
+import weddingImg20 from "@assets/wedding/gallery/wedding-20.webp";
 
 // Corporate gallery images
-import corpImg1 from "@assets/JEDunnChristmasParty2024PRINT-1258_1768515859611.jpg";
-import corpImg2 from "@assets/JEDunnChristmasParty2024PRINT-1255_1768515859615.jpg";
-import corpImg3 from "@assets/JEDunnChristmasParty2024PRINT-1208_1768515859616.jpg";
-import corpImg4 from "@assets/JEDunnChristmasParty2024PRINT-1207_1768515859617.jpg";
-import corpImg5 from "@assets/IMG_5952_1768515859618.jpg";
-import corpImg6 from "@assets/DSC02938_1768515859619.jpg";
-import corpImg7 from "@assets/DSC02920_1768515859620.jpg";
-import corpImg8 from "@assets/DJ_Miss_Haze_Corporate_Event_DJ_(1)_1768515859621.jpg";
-import corpImg9 from "@assets/DJ_Miss_Haze_Corporate_DJ_1768515859622.jpg";
-import corpImg10 from "@assets/DJ_Miss_Haze_Company_Event_DJ_1768515859623.jpg";
-import corpImg11 from "@assets/DJ_Miss_Haze_Chicago_1768515859624.jpg";
+import corpImg1 from "@assets/corporate/gallery/Brand-Event-DJ-Setup-Chicago.webp";
+import corpImg2 from "@assets/corporate/gallery/Corporate-DJ-Chicago-IL-DJ-Miss-Haze.webp";
+import corpImg3 from "@assets/corporate/gallery/Corporate-DJ-Miss-Haze.webp";
+import corpImg4 from "@assets/corporate/gallery/Corporate-Event-DJ-Miss-Haze-Kansas-City-MO.webp";
+import corpImg5 from "@assets/corporate/gallery/Corporate-Event-DJ-Miss-Haze.webp";
+import corpImg6 from "@assets/corporate/gallery/Corporate-Event-DJ-University-of-Chicago-DJ-Miss-Haze-Eva-Ho-Photography.webp";
+import corpImg7 from "@assets/corporate/gallery/Corporate-Event-with-DJ-Miss-Haze.webp";
+import corpImg8 from "@assets/corporate/gallery/DJ-Miss-Haze-Chicago-2.webp";
+import corpImg9 from "@assets/corporate/gallery/DJ-Miss-Haze-Chicago.webp";
+import corpImg10 from "@assets/corporate/gallery/DJ-Miss-Haze-Company-Event-DJ.webp";
+import corpImg11 from "@assets/corporate/gallery/DJ-Miss-Haze-Converse-onbrand.webp";
+import corpImg12 from "@assets/corporate/gallery/DJ-Miss-Haze-Corporate-DJ.webp";
+import corpImg13 from "@assets/corporate/gallery/DJ-Miss-Haze-Corporate-Event-DJ.webp";
+import corpImg14 from "@assets/corporate/gallery/DJ-Miss-Haze-Corporate-Event-DJ-1.webp";
+import corpImg15 from "@assets/corporate/gallery/DJ-Miss-Haze-Corporate-Event-DJ1.webp";
+import corpImg16 from "@assets/corporate/gallery/Famous-Footwear-DJ-Miss-Haze.webp";
+import corpImg17 from "@assets/corporate/gallery/JE-Dunn-Corporate-Event-Photo-Anniversary-Event.webp";
+import corpImg18 from "@assets/corporate/gallery/JEDunnChristmasParty2024PRINT-1267.webp";
+import corpImg19 from "@assets/corporate/gallery/Kansas-City-Corporate-Event.webp";
 
 interface GalleryImage {
   id: number;
@@ -69,17 +77,25 @@ const weddingImages: GalleryImage[] = [
 ];
 
 const corporateImages: GalleryImage[] = [
-  { id: 1, src: corpImg1, title: "LED Dance Floor Party" },
-  { id: 2, src: corpImg2, title: "Corporate Celebration" },
-  { id: 3, src: corpImg3, title: "JE Dunn Holiday Party" },
-  { id: 4, src: corpImg4, title: "Company Event" },
-  { id: 5, src: corpImg5, title: "University of Chicago - Women in Business" },
-  { id: 6, src: corpImg6, title: "DJ Miss Haze" },
-  { id: 7, src: corpImg7, title: "Brand Activation" },
-  { id: 8, src: corpImg8, title: "Event Setup" },
-  { id: 9, src: corpImg9, title: "Professional DJ Setup" },
-  { id: 10, src: corpImg10, title: "Behind the Decks" },
-  { id: 11, src: corpImg11, title: "University of Chicago" },
+  { id: 1, src: corpImg1, title: "Brand Event DJ Setup Chicago" },
+  { id: 2, src: corpImg2, title: "Corporate DJ Chicago IL" },
+  { id: 3, src: corpImg3, title: "Corporate DJ Miss Haze" },
+  { id: 4, src: corpImg4, title: "Corporate Event DJ Kansas City MO" },
+  { id: 5, src: corpImg5, title: "Corporate Event DJ Miss Haze" },
+  { id: 6, src: corpImg6, title: "University of Chicago Event" },
+  { id: 7, src: corpImg7, title: "Corporate Event with DJ Miss Haze" },
+  { id: 8, src: corpImg8, title: "DJ Miss Haze Chicago" },
+  { id: 9, src: corpImg9, title: "DJ Miss Haze Chicago Event" },
+  { id: 10, src: corpImg10, title: "DJ Miss Haze Company Event" },
+  { id: 11, src: corpImg11, title: "DJ Miss Haze x Converse" },
+  { id: 12, src: corpImg12, title: "DJ Miss Haze Corporate DJ" },
+  { id: 13, src: corpImg13, title: "DJ Miss Haze Corporate Event" },
+  { id: 14, src: corpImg14, title: "Corporate Event DJ Performance" },
+  { id: 15, src: corpImg15, title: "Corporate Event Entertainment" },
+  { id: 16, src: corpImg16, title: "Famous Footwear x DJ Miss Haze" },
+  { id: 17, src: corpImg17, title: "JE Dunn Corporate Anniversary Event" },
+  { id: 18, src: corpImg18, title: "JE Dunn Christmas Party 2024" },
+  { id: 19, src: corpImg19, title: "Kansas City Corporate Event" },
 ];
 
 export function GalleryPreview() {
@@ -137,7 +153,9 @@ export function GalleryPreview() {
   };
 
   const safeIndex = Math.min(currentIndex, images.length - 1);
-  const galleryTitle = isCorporate ? "Gallery" : "Wedding Gallery";
+  const isPrivate = layout === "private_event";
+  const isPrShow = layout === "pr_show";
+  const galleryTitle = isCorporate ? "Gallery" : isPrivate ? "Private Event Gallery" : isPrShow ? "Events Gallery" : "Wedding Gallery";
 
   return (
     <>

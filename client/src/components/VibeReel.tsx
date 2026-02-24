@@ -2,20 +2,22 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, Play } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
-import corporateVideo1 from "@assets/DJ_Miss_Haze_Corporate_and_Influencer_Event_DJ_1768769503858.mp4";
-import corporateVideo2 from "@assets/DJ-Miss-Haze-influencer-event-in-chicago-gig_1768862015483.mp4";
-import corporateVideo3 from "@assets/DJ-Miss-Haze-Corporate-Branding-DJ-Converse_(1)_1768862015484.mp4";
-import weddingVideo1 from "@assets/DJ-Miss-Haze-Wedding-DJ-Reel_1769628311846.MP4";
-import weddingVideo2 from "@assets/DJ-Miss-Haze-Wedding-DJ-Colorado-Reel_1769628311847.MP4";
-import weddingVideo3 from "@assets/DJ-Miss-Haze-Top-10-Wedding-Songs-of-2025_1769628311847.MP4";
-import weddingVideo4 from "@assets/DJ-Miss-Haze-Black-Canyon-Inn-Colorado-Wedding-DJ_1769628311848.MP4";
-import weddingVideo5 from "@assets/360-Photo-Booth-Add-On-Video-Reel_(1)_1769628311849.MP4";
-import weddingVideo6 from "@assets/360-Photo-Booth-Add-On-Video-Reel_1769628311850.MP4";
+import corporateVideo1 from "@assets/videos/corporate/DJ-Miss-Haze-Corporate-and-Influencer-Event-DJ.mp4";
+import corporateVideo2 from "@assets/videos/corporate/DJ-Miss-Haze-Corporate-Branding-DJ-Converse.mp4";
+import corporateVideo3 from "@assets/videos/corporate/DJ-Miss-Haze-influencer-event-in-chicago-gig.mp4";
+import corporateVideo4 from "@assets/videos/corporate/Denver-Corporate-Event-DJ.mp4";
+import weddingVideo1 from "@assets/videos/wedding/wedding-video-01.mp4";
+import weddingVideo2 from "@assets/videos/wedding/wedding-video-02.mp4";
+import weddingVideo3 from "@assets/videos/wedding/wedding-video-03.mp4";
+import weddingVideo4 from "@assets/videos/wedding/wedding-video-04.mp4";
+import weddingVideo5 from "@assets/videos/wedding/wedding-video-05.mp4";
+import weddingVideo6 from "@assets/videos/wedding/wedding-video-06.mp4";
 
 const corporateVideos = [
   { id: 1, src: corporateVideo1, title: "Corporate & Influencer Events" },
-  { id: 2, src: corporateVideo2, title: "Influencer Event in Chicago" },
-  { id: 3, src: corporateVideo3, title: "Converse Brand Activation" },
+  { id: 2, src: corporateVideo2, title: "Converse Brand Activation" },
+  { id: 3, src: corporateVideo3, title: "Influencer Event in Chicago" },
+  { id: 4, src: corporateVideo4, title: "Denver Corporate Event" },
 ];
 
 const weddingVideos = [

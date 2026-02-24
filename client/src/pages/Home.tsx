@@ -20,10 +20,10 @@ import { layouts } from "@/styles/themes";
 import { usePosts } from "@/hooks/use-posts";
 import { useEventContent, layoutToEventType as getEventType } from "@/hooks/use-event-content";
 import { useSiteImages } from "@/hooks/use-site-images";
-import weddingImg from "@assets/VERSACE_(3)_1769632123580.png";
-import prShowImg from "@assets/DJ_Miss_Haze_Wedding_DJ_Chicago_and_Denver-022_1766178470443.jpg";
-import privateEventImg from "@assets/DJ_Miss_Haze_Wedding_DJ_Chicago_and_Denver-073_1766178470442.jpg";
-import corporateImg from "@assets/DJ_Miss_Haze_Wedding_DJ_Chicago_and_Denver-022_(1)_1768864251304.jpg";
+import weddingImg from "@assets/wedding/hero/wedding-hero.webp";
+import prShowImg from "@assets/pr_show/hero/pr-show-hero.webp";
+import privateEventImg from "@assets/private/hero/private-hero.webp";
+import corporateImg from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-Dallas-Denver-Chicago.webp";
 
 const defaultLayoutImages = {
   wedding: weddingImg,
@@ -61,6 +61,7 @@ export default function Home() {
   const isCorporate = layout === "corporate_event";
   const isWedding = layout === "wedding";
   const isPrivate = layout === "private_event";
+  const isPrShow = layout === "pr_show";
   
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -164,7 +165,7 @@ export default function Home() {
       <EventSignatureSection />
 
       {/* Client Logos Banner */}
-      <ClientLogos />
+      {!isPrivate && !isPrShow && <ClientLogos />}
 
       {/* 4. Brand Reviews */}
       <section id="reviews" className="container mx-auto px-4 py-8 md:py-16">
@@ -172,9 +173,11 @@ export default function Home() {
       </section>
 
       {/* 5. Vibe Reel */}
-      <section className="container mx-auto px-4 py-8 md:py-16">
-        <VibeReel />
-      </section>
+      {!isPrivate && !isPrShow && (
+        <section className="container mx-auto px-4 py-8 md:py-16">
+          <VibeReel />
+        </section>
+      )}
 
       {/* 6. Mantra Section */}
       <section id="mantra" className="container mx-auto px-4 py-16 md:py-24 border-y border-white/5 bg-white/2">
@@ -282,8 +285,7 @@ export default function Home() {
       {/* 8.6 Wedding Event Planning Carousel (Wedding Only) */}
       {isWedding && <WeddingEventPlanning />}
 
-      {/* 8.7 Private Event Planning Section (Private Only) */}
-      {isPrivate && <PrivateEventPlanning />}
+      {/* 8.7 Private Event Planning Section (Private Only) — currently disabled */}
 
       {/* 9. FAQ Section */}
       <section id="faq" className="container mx-auto px-4 py-8 md:py-16">
