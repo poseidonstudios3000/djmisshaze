@@ -26,7 +26,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (urlLayout) return urlLayout;
     // Fallback to localStorage
     const saved = localStorage.getItem("dj-layout");
-    return (saved as EventLayout) || "wedding";
+    return (saved as EventLayout) || "corporate_event";
   });
 
   useEffect(() => {
