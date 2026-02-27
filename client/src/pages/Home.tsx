@@ -78,12 +78,12 @@ export default function Home() {
         <div className="absolute inset-0 z-[1] opacity-30 md:opacity-25" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
         <div className="hidden lg:block absolute inset-0 z-[1] opacity-25" style={{ background: "radial-gradient(ellipse at 65% 50%, hsl(var(--primary) / 0.4), transparent 60%)" }} />
 
-        {/* Transparent DJ image — top-center on mobile/tablet, right-side on desktop */}
+        {/* Transparent DJ image — centered on mobile/tablet, right-side on desktop */}
         <motion.img
           key={layout}
           src={transparentImages[layout]}
           alt="DJ Miss Haze"
-          className="absolute z-[2] left-1/2 -translate-x-1/2 top-[5vh] sm:top-[6vh] md:top-[4vh] h-[50vh] sm:h-[52vh] md:h-[55vh] w-auto max-w-none object-contain pointer-events-none select-none lg:top-auto lg:bottom-0 lg:h-[85vh] lg:left-auto lg:translate-x-0 lg:right-[5%]"
+          className="absolute z-[2] inset-0 m-auto h-[55vh] sm:h-[58vh] md:h-[60vh] w-auto object-contain pointer-events-none select-none lg:inset-auto lg:m-0 lg:bottom-0 lg:right-[5%] lg:h-[85vh]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
