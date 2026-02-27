@@ -130,11 +130,7 @@ export async function registerRoutes(
         const resend = new Resend(process.env.RESEND_API_KEY);
 
         try {
-          await resend.emails.send({
-            from: "DJ Miss Haze Bookings <onboarding@resend.dev>",
-            to: "info@djmisshaze.com",
-            subject: `New Booking Inquiry: ${input.eventType} in ${input.location}`,
-            html: `
+          const emailHtml = `
               <h2>New Booking Inquiry</h2>
               <p><strong>Name:</strong> ${input.name}</p>
               <p><strong>Location:</strong> ${input.location}</p>
@@ -144,9 +140,15 @@ export async function registerRoutes(
               <p><strong>Phone:</strong> ${input.phone || "Not provided"}</p>
               <hr>
               <p style="color: #888; font-size: 12px;">Submitted on ${new Date().toLocaleString()}</p>
-            `,
+            `;
+          const recipients = ["info@djmisshaze.com", "astronots22@gmail.com"];
+          await resend.emails.send({
+            from: "DJ Miss Haze Bookings <onboarding@resend.dev>",
+            to: recipients,
+            subject: `New Booking Inquiry: ${input.eventType} in ${input.location}`,
+            html: emailHtml,
           });
-          console.log("[EMAIL] Booking inquiry sent to info@djmisshaze.com");
+          console.log(`[EMAIL] Booking inquiry sent to ${recipients.join(", ")}`);
         } catch (emailError) {
           console.error("[EMAIL ERROR]", emailError);
         }
