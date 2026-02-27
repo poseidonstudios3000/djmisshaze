@@ -1,4 +1,4 @@
-import { db } from "./db";
+import { db } from "./db.js";
 import {
   inquiries,
   posts,
@@ -15,7 +15,7 @@ import {
   type InsertSiteContent,
   type SiteImage,
   type InsertSiteImage,
-} from "@shared/schema";
+} from "../shared/schema.js";
 import { eq } from "drizzle-orm";
 
 class InMemoryStorage implements IStorage {

@@ -1,7 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import type { Server } from "http";
-import { storage } from "./storage";
-import { api } from "@shared/routes";
+import { storage } from "./storage.js";
+import { api } from "../shared/routes.js";
 import { z } from "zod";
 // import { Resend } from "resend";
 import multer from "multer";
