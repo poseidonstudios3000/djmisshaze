@@ -97,28 +97,28 @@ export default function Home() {
         <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-40 z-[3] bg-gradient-to-t from-background to-transparent" />
 
         {/* Text content */}
-        <div className="container mx-auto relative z-10 px-6 md:px-8 lg:px-12 h-full flex flex-col justify-end pb-10 md:pb-12 lg:justify-center lg:pb-0">
-          <div className="space-y-4 md:space-y-5 lg:space-y-6 text-center lg:text-left lg:max-w-[50%]">
+        <div className="container mx-auto relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 h-full flex flex-col justify-end pb-[88px] sm:pb-[92px] md:pb-[96px] lg:justify-center lg:pb-0">
+          <div className="space-y-2 sm:space-y-3 md:space-y-5 lg:space-y-6 text-center lg:text-left lg:max-w-[50%]">
             <div className="flex flex-col items-center lg:items-start w-full">
-              <h1 className="text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[6.5vw] leading-none font-black font-display tracking-tighter text-white flex justify-between sm:justify-center lg:justify-start sm:gap-[0.03em] uppercase w-full sm:w-auto">
+              <h1 className="text-[12vw] sm:text-[12vw] md:text-[10vw] lg:text-[6.5vw] leading-none font-black font-display tracking-tighter text-white flex justify-between sm:justify-center lg:justify-start sm:gap-[0.03em] uppercase w-full sm:w-auto">
                 <span>D</span><span>J</span><span className="ml-[0.08em]">M</span><span>I</span><span>S</span><span>S</span><span className="ml-[0.08em]">H</span><span>A</span><span>Z</span><span>E</span>
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-primary uppercase tracking-[0.15em] md:tracking-[0.2em] whitespace-pre-line">
+            <p className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-primary uppercase tracking-[0.12em] sm:tracking-[0.15em] md:tracking-[0.2em] whitespace-pre-line">
               {heroSubtitle}
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-5 lg:gap-6 text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white/80 uppercase tracking-widest">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 md:gap-5 lg:gap-6 text-[10px] sm:text-xs md:text-base lg:text-lg font-bold text-white/80 uppercase tracking-wider md:tracking-widest">
               {eventContent.hero.locations.map((location: string, index: number) => (
-                <span key={index} className="flex items-center gap-1.5 md:gap-2">
-                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
+                <span key={index} className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
+                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-primary" />
                   <span>{location}</span>
                 </span>
               ))}
             </div>
 
-            <div className="pt-3 md:pt-4 lg:pt-6">
+            <div className="pt-1 sm:pt-2 md:pt-4 lg:pt-6">
               <CompactBookingForm defaultEventType={eventType} />
             </div>
           </div>
