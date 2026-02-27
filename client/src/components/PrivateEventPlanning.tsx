@@ -119,7 +119,7 @@ export function PrivateEventPlanning() {
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="inline-block px-8 py-3 bg-primary text-black font-black font-display tracking-tighter rounded-full hover:scale-105 transition-all beam-effect uppercase"
+              className="inline-block px-8 py-3 btn-gradient text-primary-foreground font-black font-display tracking-tighter rounded-full hover:scale-105 transition-all beam-effect uppercase"
               data-testid="button-private-cta"
             >
               Plan Your Party

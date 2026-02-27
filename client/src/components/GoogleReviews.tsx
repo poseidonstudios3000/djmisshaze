@@ -56,7 +56,7 @@ export function GoogleReviews() {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
+              <Star key={i} className="w-4 h-4 md:w-5 md:h-5" style={{ fill: "url(#icon-gradient)", stroke: "url(#icon-gradient)" }} />
             ))}
           </div>
           <p className="text-sm text-muted-foreground">{ratingText}</p>
@@ -95,7 +95,7 @@ export function GoogleReviews() {
                     <div>
                       <div className="flex justify-center gap-1 mb-4">
                         {[...Array(review.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
+                          <Star key={i} className="w-4 h-4 md:w-5 md:h-5" style={{ fill: "url(#icon-gradient)", stroke: "url(#icon-gradient)" }} />
                         ))}
                       </div>
                       

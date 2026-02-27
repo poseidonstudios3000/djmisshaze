@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground border border-primary-border rounded-md text-sm font-medium",
+          "btn-gradient text-primary-foreground border border-primary-border rounded-md text-sm font-medium",
         destructive:
           "bg-destructive text-destructive-foreground border border-destructive-border rounded-md text-sm font-medium",
         outline:
@@ -22,7 +22,7 @@ const buttonVariants = cva(
         // Add a transparent border so that when someone toggles a border on later, it doesn't shift layout/size.
         ghost: "border border-transparent rounded-md text-sm font-medium",
         // CTA style - matches the "Inquire Now" button
-        cta: "bg-primary text-black font-black font-display tracking-tighter rounded-full hover:scale-105 shadow-xl shadow-primary/20",
+        cta: "btn-gradient text-primary-foreground font-black font-display tracking-tighter rounded-full hover:scale-105 shadow-xl shadow-primary/20",
       },
       // Heights are set as "min" heights, because sometimes Ai will place large amount of content
       // inside buttons. With a min-height they will look appropriate with small amounts of content,

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Star, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { FooterCTA } from "@/components/FooterCTA";
@@ -20,23 +20,17 @@ import { layouts } from "@/styles/themes";
 import { usePosts } from "@/hooks/use-posts";
 import { useEventContent, layoutToEventType as getEventType } from "@/hooks/use-event-content";
 import { useSiteImages } from "@/hooks/use-site-images";
-import weddingImg from "@assets/wedding/hero/Wedding-DJ-Chicago-Denver-Dallas-book-now.webp";
-import prShowImg from "@assets/other/hero/Event-DJ-Chicago-book-now-for-your-next-event.webp";
-import privateEventImg from "@assets/private/hero/Private-Events-DJ-book-now-female-DJ.webp";
 import corporateImg from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-Dallas-Denver-Chicago.webp";
+import corporateTransparent from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-transparent.webp";
+import weddingTransparent from "@assets/wedding/hero/Wedding-DJ-Chicago-Denver-Dallas-transparent.webp";
+import privateTransparent from "@assets/private/hero/Private-Events-DJ-transparent.webp";
+import otherTransparent from "@assets/other/hero/Event-DJ-Chicago-transparent.webp";
 
-const defaultLayoutImages = {
-  wedding: weddingImg,
-  pr_show: prShowImg,
-  private_event: privateEventImg,
-  corporate_event: corporateImg,
-};
-
-const layoutToImageKey: Record<string, string> = {
-  corporate_event: "hero_corporate",
-  wedding: "hero_wedding",
-  private_event: "hero_private",
-  pr_show: "hero_other",
+const transparentImages: Record<string, string> = {
+  corporate_event: corporateTransparent,
+  wedding: weddingTransparent,
+  private_event: privateTransparent,
+  pr_show: otherTransparent,
 };
 
 const layoutToFormEventType: Record<string, string> = {
@@ -51,8 +45,6 @@ export default function Home() {
   const { layout } = useTheme();
   const currentLayout = layouts[layout];
   const { getImage } = useSiteImages();
-  const dynamicHero = getImage(layoutToImageKey[layout] || "hero_other");
-  const heroImage = dynamicHero || defaultLayoutImages[layout as keyof typeof defaultLayoutImages];
   const aboutImage = getImage("about_photo");
   const evtType = getEventType(layout);
   const { content: eventContent } = useEventContent(evtType);
@@ -79,52 +71,54 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section ref={targetRef} className="h-screen relative flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/85 md:from-black/70 md:via-black/50 md:to-black/80 z-10" />
-          <motion.img
-            key={layout}
-            src={heroImage}
-            alt="DJ Miss Haze"
-            className={`w-full h-full object-cover ${
-              layout === "corporate_event"
-                ? "object-[center_20%] md:object-[center_25%]"
-                : layout === "wedding"
-                  ? "object-[center_15%] md:object-[center_20%]"
-                  : layout === "private_event"
-                    ? "object-[center_15%] md:object-[center_20%]"
-                    : "object-[center_15%] md:object-[center_20%]"
-            }`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            loading="eager"
-            decoding="async"
-          />
-        </div>
+      <section ref={targetRef} className="h-screen relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background to-primary/15" />
+        {/* Subtle radial glow — centered on mobile, right-biased on desktop */}
+        <div className="absolute inset-0 z-[1] opacity-30 md:opacity-25" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
+        <div className="hidden lg:block absolute inset-0 z-[1] opacity-25" style={{ background: "radial-gradient(ellipse at 65% 50%, hsl(var(--primary) / 0.4), transparent 60%)" }} />
 
-        <div className="container relative z-20 px-4 text-center flex flex-col items-center justify-end pb-12 md:justify-center md:pb-0 h-full">
-          <div className="space-y-4 md:space-y-6">
-            <div className="flex flex-col items-center w-full max-w-[98vw]">
-              <h1 className="text-[13vw] md:text-[11vw] leading-none font-black font-display tracking-tighter text-white w-full flex justify-between uppercase">
-                <span>D</span><span>J</span><span className="ml-[0.1em]">M</span><span>I</span><span>S</span><span>S</span><span className="ml-[0.1em]">H</span><span>A</span><span>Z</span><span>E</span>
+        {/* Transparent DJ image — behind text on mobile/tablet, beside text on desktop */}
+        <motion.img
+          key={layout}
+          src={transparentImages[layout]}
+          alt="DJ Miss Haze"
+          className="absolute z-[2] bottom-0 left-1/2 -translate-x-1/2 h-[60vh] sm:h-[65vh] md:h-[70vh] lg:h-[85vh] w-auto max-w-none object-contain pointer-events-none select-none lg:left-auto lg:translate-x-0 lg:right-[5%]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          loading="eager"
+          decoding="async"
+        />
+
+        {/* Dark overlay on mobile/tablet so text reads over the DJ image */}
+        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background via-background/70 to-background/30 lg:hidden" />
+        {/* Bottom fade on desktop */}
+        <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-40 z-[3] bg-gradient-to-t from-background to-transparent" />
+
+        {/* Text content */}
+        <div className="container mx-auto relative z-10 px-6 md:px-8 lg:px-12 h-full flex flex-col justify-end pb-10 md:pb-12 lg:justify-center lg:pb-0">
+          <div className="space-y-4 md:space-y-5 lg:space-y-6 text-center lg:text-left lg:max-w-[50%]">
+            <div className="flex flex-col items-center lg:items-start w-full">
+              <h1 className="text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[6.5vw] leading-none font-black font-display tracking-tighter text-white flex justify-between sm:justify-center lg:justify-start sm:gap-[0.03em] uppercase w-full sm:w-auto">
+                <span>D</span><span>J</span><span className="ml-[0.08em]">M</span><span>I</span><span>S</span><span>S</span><span className="ml-[0.08em]">H</span><span>A</span><span>Z</span><span>E</span>
               </h1>
             </div>
 
-            <p className="text-xl md:text-2xl font-bold text-primary uppercase tracking-[0.2em] whitespace-pre-line">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-primary uppercase tracking-[0.15em] md:tracking-[0.2em] whitespace-pre-line">
               {heroSubtitle}
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm md:text-lg font-bold text-white/80 uppercase tracking-widest">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-5 lg:gap-6 text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white/80 uppercase tracking-widest">
               {eventContent.hero.locations.map((location: string, index: number) => (
-                <span key={index} className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
+                <span key={index} className="flex items-center gap-1.5 md:gap-2">
+                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                   <span>{location}</span>
                 </span>
               ))}
             </div>
 
-            <div className="pt-6">
+            <div className="pt-3 md:pt-4 lg:pt-6">
               <CompactBookingForm defaultEventType={eventType} />
             </div>
           </div>
@@ -138,14 +132,14 @@ export default function Home() {
           <span key={j} className="shrink-0 flex items-center gap-2">
             <span className="flex">
               {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-yellow-400">★</span>
+                <span key={i} className="text-star-gradient">★</span>
               ))}
             </span>
             {item}
           </span>
         ));
         return (
-          <div className="w-full bg-primary py-3 overflow-hidden whitespace-nowrap -rotate-1 relative z-30 shadow-lg shadow-primary/20">
+          <div className="w-full bg-primary py-3 overflow-hidden whitespace-nowrap relative z-30 shadow-lg shadow-primary/20">
             <div className="flex">
               <div className="flex shrink-0 animate-marquee">
                 <div className="flex items-center gap-6 px-4 text-black font-black font-display text-lg uppercase shrink-0">
@@ -269,7 +263,7 @@ export default function Home() {
                 <a 
                   href="#" 
                   onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="inline-block px-8 py-3 bg-primary text-black font-black font-display tracking-tighter rounded-full hover:scale-105 transition-all beam-effect uppercase"
+                  className="inline-block px-8 py-3 btn-gradient text-primary-foreground font-black font-display tracking-tighter rounded-full hover:scale-105 transition-all beam-effect uppercase"
                   data-testid="button-why-choose-cta"
                 >
                   Start Planning
@@ -342,7 +336,7 @@ export default function Home() {
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="inline-block px-12 py-4 bg-primary text-black font-black font-display tracking-tighter text-xl rounded-full hover:scale-105 transition-all shadow-xl shadow-primary/20 beam-effect uppercase"
+              className="inline-block px-12 py-4 btn-gradient text-primary-foreground font-black font-display tracking-tighter text-xl rounded-full hover:scale-105 transition-all shadow-xl shadow-primary/20 beam-effect uppercase"
               data-testid="link-inquire-now"
             >
               {eventContent.cta.button}

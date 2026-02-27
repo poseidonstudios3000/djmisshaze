@@ -281,7 +281,7 @@ export default function LocationPage({ location }: LocationPageProps) {
             <a 
               href="#" 
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="inline-block px-12 py-4 bg-primary text-black font-black font-display tracking-tighter text-xl rounded-full hover:scale-105 transition-all shadow-xl shadow-primary/20 beam-effect uppercase"
+              className="inline-block px-12 py-4 btn-gradient text-primary-foreground font-black font-display tracking-tighter text-xl rounded-full hover:scale-105 transition-all shadow-xl shadow-primary/20 beam-effect uppercase"
               data-testid="link-inquire-now-cta"
             >
               Inquire Now

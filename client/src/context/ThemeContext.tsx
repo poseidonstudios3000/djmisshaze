@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 
 export type EventLayout = "wedding" | "pr_show" | "private_event" | "corporate_event";
 
@@ -21,10 +21,8 @@ function getLayoutFromUrl(): EventLayout | null {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [layout, setLayout] = useState<EventLayout>(() => {
-    // URL parameter takes priority
     const urlLayout = getLayoutFromUrl();
     if (urlLayout) return urlLayout;
-    // Fallback to localStorage
     const saved = localStorage.getItem("dj-layout");
     return (saved as EventLayout) || "corporate_event";
   });

@@ -67,8 +67,8 @@ export function VibeReel() {
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary/40 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300">
-                      <Play className="w-8 h-8 text-primary fill-primary ml-1" />
+                    <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 group-hover:bg-white/15 group-hover:scale-110 transition-all duration-300">
+                      <Play className="w-8 h-8 ml-1" style={{ fill: "url(#icon-gradient)", stroke: "url(#icon-gradient)" }} />
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />

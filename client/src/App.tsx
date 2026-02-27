@@ -23,11 +23,28 @@ function Router() {
   );
 }
 
+/* Hidden SVG with gradient defs that reference CSS custom properties.
+   Every <Star> / <Play> icon can use fill="url(#icon-gradient)". */
+function IconGradientDefs() {
+  return (
+    <svg width="0" height="0" className="absolute">
+      <defs>
+        <linearGradient id="icon-gradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" style={{ stopColor: "hsl(var(--gradient-to))" }} />
+          <stop offset="50%" style={{ stopColor: "hsl(var(--gradient-via))" }} />
+          <stop offset="100%" style={{ stopColor: "hsl(var(--gradient-from))" }} />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <IconGradientDefs />
           <Router />
           <Toaster />
         </TooltipProvider>

@@ -35,7 +35,7 @@ export function FooterCTA() {
             href="https://scheduler.zoom.us/dj-miss-haze" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex-1 md:flex-none h-12 px-6 rounded-full bg-primary text-black font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 beam-effect"
+            className="flex-1 md:flex-none h-12 px-6 rounded-full btn-gradient text-primary-foreground font-bold transition-colors flex items-center justify-center gap-2 beam-effect"
             data-testid="link-zoom-call"
           >
             <Video className="w-4 h-4" />
