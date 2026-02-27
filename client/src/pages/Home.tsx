@@ -83,7 +83,7 @@ export default function Home() {
           key={layout}
           src={transparentImages[layout]}
           alt="DJ Miss Haze"
-          className="absolute z-[2] inset-0 m-auto -mt-[8vh] sm:-mt-[10vh] md:-mt-[12vh] h-[55vh] sm:h-[58vh] md:h-[60vh] w-auto object-contain pointer-events-none select-none lg:inset-auto lg:m-0 lg:mt-0 lg:bottom-0 lg:right-[5%] lg:h-[85vh]"
+          className="absolute z-[2] inset-0 m-auto -mt-[4vh] sm:-mt-[5vh] md:-mt-[6vh] h-[55vh] sm:h-[58vh] md:h-[60vh] w-auto object-contain pointer-events-none select-none lg:inset-auto lg:m-0 lg:mt-0 lg:bottom-0 lg:right-[5%] lg:h-[85vh]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
