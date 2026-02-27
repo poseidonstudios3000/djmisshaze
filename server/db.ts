@@ -1,10 +1,11 @@
-import pg from "pg";
-import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool, neonConfig } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-serverless";
 import * as schema from "@shared/schema";
+import ws from "ws";
 
-const { Pool } = pg;
+neonConfig.webSocketConstructor = ws;
 
-let pool: InstanceType<typeof Pool> | null = null;
+let pool: Pool | null = null;
 let db: ReturnType<typeof drizzle> | null = null;
 
 if (process.env.DATABASE_URL && process.env.DATABASE_URL !== "postgresql://placeholder:placeholder@localhost:5432/placeholder") {

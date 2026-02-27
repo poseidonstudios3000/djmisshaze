@@ -3,7 +3,7 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { Resend } from "resend";
+// import { Resend } from "resend";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
@@ -125,36 +125,6 @@ export async function registerRoutes(
     try {
       const input = api.inquiries.create.input.parse(req.body);
       const inquiry = await storage.createInquiry(input);
-
-      if (process.env.RESEND_API_KEY) {
-        const resend = new Resend(process.env.RESEND_API_KEY);
-
-        try {
-          const emailHtml = `
-              <h2>New Booking Inquiry</h2>
-              <p><strong>Name:</strong> ${input.name}</p>
-              <p><strong>Location:</strong> ${input.location}</p>
-              <p><strong>Event Type:</strong> ${input.eventType}</p>
-              <p><strong>Event Date:</strong> ${input.date}</p>
-              <p><strong>Email:</strong> ${input.email || "Not provided"}</p>
-              <p><strong>Phone:</strong> ${input.phone || "Not provided"}</p>
-              <hr>
-              <p style="color: #888; font-size: 12px;">Submitted on ${new Date().toLocaleString()}</p>
-            `;
-          const recipients = ["info@djmisshaze.com", "astronots22@gmail.com"];
-          await resend.emails.send({
-            from: "DJ Miss Haze Bookings <onboarding@resend.dev>",
-            to: recipients,
-            subject: `New Booking Inquiry: ${input.eventType} in ${input.location}`,
-            html: emailHtml,
-          });
-          console.log(`[EMAIL] Booking inquiry sent to ${recipients.join(", ")}`);
-        } catch (emailError) {
-          console.error("[EMAIL ERROR]", emailError);
-        }
-      } else {
-        console.log("[EMAIL] RESEND_API_KEY not configured, skipping email");
-      }
 
       res.status(201).json(inquiry);
     } catch (err) {
