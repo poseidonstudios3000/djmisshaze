@@ -1,16 +1,15 @@
-import { Pool, neonConfig } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-serverless';
-import ws from "ws";
+import pg from "pg";
+import { drizzle } from "drizzle-orm/node-postgres";
 import * as schema from "@shared/schema";
 
-neonConfig.webSocketConstructor = ws;
+const { Pool } = pg;
 
-let pool: Pool | null = null;
+let pool: InstanceType<typeof Pool> | null = null;
 let db: ReturnType<typeof drizzle> | null = null;
 
 if (process.env.DATABASE_URL && process.env.DATABASE_URL !== "postgresql://placeholder:placeholder@localhost:5432/placeholder") {
   pool = new Pool({ connectionString: process.env.DATABASE_URL });
-  db = drizzle({ client: pool, schema });
+  db = drizzle(pool, { schema });
 } else {
   console.log("[DB] No DATABASE_URL configured — running with in-memory storage");
 }
