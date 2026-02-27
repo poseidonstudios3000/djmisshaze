@@ -78,12 +78,12 @@ export default function Home() {
         <div className="absolute inset-0 z-[1] opacity-30 md:opacity-25" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
         <div className="hidden lg:block absolute inset-0 z-[1] opacity-25" style={{ background: "radial-gradient(ellipse at 65% 50%, hsl(var(--primary) / 0.4), transparent 60%)" }} />
 
-        {/* Transparent DJ image — behind text on mobile/tablet, beside text on desktop */}
+        {/* Transparent DJ image — top-center on mobile/tablet, right-side on desktop */}
         <motion.img
           key={layout}
           src={transparentImages[layout]}
           alt="DJ Miss Haze"
-          className="absolute z-[2] bottom-0 left-1/2 -translate-x-1/2 h-[60vh] sm:h-[65vh] md:h-[70vh] lg:h-[85vh] w-auto max-w-none object-contain pointer-events-none select-none lg:left-auto lg:translate-x-0 lg:right-[5%]"
+          className="absolute z-[2] left-1/2 -translate-x-1/2 top-[5vh] sm:top-[6vh] md:top-[4vh] h-[50vh] sm:h-[52vh] md:h-[55vh] w-auto max-w-none object-contain pointer-events-none select-none lg:top-auto lg:bottom-0 lg:h-[85vh] lg:left-auto lg:translate-x-0 lg:right-[5%]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -91,8 +91,8 @@ export default function Home() {
           decoding="async"
         />
 
-        {/* Dark overlay on mobile/tablet so text reads over the DJ image */}
-        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background via-background/70 to-background/30 lg:hidden" />
+        {/* Gradient overlay on mobile/tablet — DJ visible on top, fades to dark at bottom for text */}
+        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background from-30% via-background/50 via-55% to-transparent lg:hidden" />
         {/* Bottom fade on desktop */}
         <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-40 z-[3] bg-gradient-to-t from-background to-transparent" />
 
