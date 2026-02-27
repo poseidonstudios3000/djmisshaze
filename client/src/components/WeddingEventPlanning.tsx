@@ -2,24 +2,24 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import slide1 from "@assets/wedding/slides/slide-01.webp";
-import slide2 from "@assets/wedding/slides/slide-02.webp";
-import slide3 from "@assets/wedding/slides/slide-03.webp";
-import slide4 from "@assets/wedding/slides/slide-04.webp";
-import slide5 from "@assets/wedding/slides/slide-05.webp";
-import slide6 from "@assets/wedding/slides/slide-06.webp";
-import slide7 from "@assets/wedding/slides/slide-07.webp";
-import slide8 from "@assets/wedding/slides/slide-08.webp";
+import slide1 from "@assets/wedding/slides/Wedding-DJ-Chicago-DJ-Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-1.webp";
+import slide2 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-2.webp";
+import slide3 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-3.webp";
+import slide4 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-4.webp";
+import slide5 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-5.webp";
+import slide6 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-6.webp";
+import slide7 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-7.webp";
+import slide8 from "@assets/wedding/slides/Miss-Haze-5-things-couples-dont-realize-when-booking-a-DJ-8.webp";
 
 const slides = [
   { src: slide1, alt: "5 Things Couples Don't Realize When Booking a Wedding DJ" },
-  { src: slide2, alt: "Wedding DJ Tips - Slide 2" },
-  { src: slide3, alt: "Wedding DJ Tips - Slide 3" },
-  { src: slide4, alt: "Wedding DJ Tips - Slide 4" },
-  { src: slide5, alt: "Wedding DJ Tips - Slide 5" },
-  { src: slide6, alt: "Wedding DJ Tips - Slide 6" },
-  { src: slide7, alt: "Wedding DJ Tips - Slide 7" },
-  { src: slide8, alt: "Wedding DJ Tips - Slide 8" },
+  { src: slide2, alt: "5 Things Couples Don't Realize - Tip 2" },
+  { src: slide3, alt: "5 Things Couples Don't Realize - Tip 3" },
+  { src: slide4, alt: "5 Things Couples Don't Realize - Tip 4" },
+  { src: slide5, alt: "5 Things Couples Don't Realize - Tip 5" },
+  { src: slide6, alt: "5 Things Couples Don't Realize - Tip 6" },
+  { src: slide7, alt: "5 Things Couples Don't Realize - Tip 7" },
+  { src: slide8, alt: "5 Things Couples Don't Realize - Tip 8" },
 ];
 
 export function WeddingEventPlanning() {

@@ -2,16 +2,24 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, PartyPopper, Users, Sparkles, Music, Heart, Clock } from "lucide-react";
 
-import img1 from "@assets/private/gallery/private-01.webp";
-import img2 from "@assets/private/gallery/private-02.webp";
-import img3 from "@assets/private/gallery/private-03.webp";
-import img4 from "@assets/private/gallery/private-04.webp";
+import img1 from "@assets/private/gallery/Private-Event-DJ-Miss-Haze.webp";
+import img2 from "@assets/private/gallery/Private-Event-DJ-Chicago.webp";
+import img3 from "@assets/private/gallery/Private-Events-DJ-energy-chicago.webp";
+import img4 from "@assets/private/gallery/DJ-Miss-Haze-Event-DJ-and-MC.webp";
+import img5 from "@assets/private/gallery/Pro-Mobile-DJ-Chicago.webp";
+import img6 from "@assets/private/gallery/Private-Event-book-DJ-now-Colorado.webp";
+import img7 from "@assets/private/gallery/female-DJ-chicago-rooftop.webp";
+import img8 from "@assets/private/gallery/Female-DJ-Glenview-Illinois.webp";
 
 const slides = [
-  { src: img1, alt: "Holiday Party DJ Experience" },
-  { src: img2, alt: "Birthday Celebration Energy" },
-  { src: img3, alt: "Private Party Moments" },
-  { src: img4, alt: "Dance Floor Vibes" },
+  { src: img1, alt: "Private Event DJ Miss Haze" },
+  { src: img2, alt: "Private Event DJ Chicago" },
+  { src: img3, alt: "Private Events DJ Energy Chicago" },
+  { src: img4, alt: "DJ Miss Haze Event DJ and MC" },
+  { src: img5, alt: "Pro Mobile DJ Chicago" },
+  { src: img6, alt: "Private Event Book DJ Now Colorado" },
+  { src: img7, alt: "Female DJ Chicago Rooftop" },
+  { src: img8, alt: "Female DJ Glenview Illinois" },
 ];
 
 const features = [

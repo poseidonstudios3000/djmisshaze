@@ -20,9 +20,9 @@ import { layouts } from "@/styles/themes";
 import { usePosts } from "@/hooks/use-posts";
 import { useEventContent, layoutToEventType as getEventType } from "@/hooks/use-event-content";
 import { useSiteImages } from "@/hooks/use-site-images";
-import weddingImg from "@assets/wedding/hero/wedding-hero.webp";
-import prShowImg from "@assets/pr_show/hero/pr-show-hero.webp";
-import privateEventImg from "@assets/private/hero/private-hero.webp";
+import weddingImg from "@assets/wedding/hero/Wedding-DJ-Chicago-Denver-Dallas-book-now.webp";
+import prShowImg from "@assets/other/hero/Event-DJ-Chicago-book-now-for-your-next-event.webp";
+import privateEventImg from "@assets/private/hero/Private-Events-DJ-book-now-female-DJ.webp";
 import corporateImg from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-Dallas-Denver-Chicago.webp";
 
 const defaultLayoutImages = {
@@ -81,19 +81,20 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section ref={targetRef} className="h-screen relative flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10" />
-          <motion.img 
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/85 md:from-black/70 md:via-black/50 md:to-black/80 z-10" />
+          <motion.img
             key={layout}
-            src={heroImage} 
+            src={heroImage}
             alt="DJ Miss Haze"
             className={`w-full h-full object-cover ${
-              layout === "wedding" 
-                ? "object-[center_10%] md:object-[center_15%]" 
-                : layout === "corporate_event"
-                  ? ""
-                  : "object-center"
+              layout === "corporate_event"
+                ? "object-[center_20%] md:object-[center_25%]"
+                : layout === "wedding"
+                  ? "object-[center_15%] md:object-[center_20%]"
+                  : layout === "private_event"
+                    ? "object-[center_15%] md:object-[center_20%]"
+                    : "object-[center_15%] md:object-[center_20%]"
             }`}
-            style={layout === "corporate_event" ? { objectPosition: 'center 25%' } : undefined}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
@@ -102,7 +103,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-20 px-4 text-center flex flex-col items-center justify-center h-full">
+        <div className="container relative z-20 px-4 text-center flex flex-col items-center justify-end pb-12 md:justify-center md:pb-0 h-full">
           <div className="space-y-4 md:space-y-6">
             <div className="flex flex-col items-center w-full max-w-[98vw]">
               <h1 className="text-[13vw] md:text-[11vw] leading-none font-black font-display tracking-tighter text-white w-full flex justify-between uppercase">

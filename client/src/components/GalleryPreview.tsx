@@ -4,26 +4,43 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 // Wedding gallery images
-import weddingImg1 from "@assets/wedding/gallery/wedding-01.webp";
-import weddingImg2 from "@assets/wedding/gallery/wedding-02.webp";
-import weddingImg3 from "@assets/wedding/gallery/wedding-03.webp";
-import weddingImg4 from "@assets/wedding/gallery/wedding-04.webp";
-import weddingImg5 from "@assets/wedding/gallery/wedding-05.webp";
-import weddingImg6 from "@assets/wedding/gallery/wedding-06.webp";
-import weddingImg7 from "@assets/wedding/gallery/wedding-07.webp";
-import weddingImg8 from "@assets/wedding/gallery/wedding-08.webp";
-import weddingImg9 from "@assets/wedding/gallery/wedding-09.webp";
-import weddingImg10 from "@assets/wedding/gallery/wedding-10.webp";
-import weddingImg11 from "@assets/wedding/gallery/wedding-11.webp";
-import weddingImg12 from "@assets/wedding/gallery/wedding-12.webp";
-import weddingImg13 from "@assets/wedding/gallery/wedding-13.webp";
-import weddingImg14 from "@assets/wedding/gallery/wedding-14.webp";
-import weddingImg15 from "@assets/wedding/gallery/wedding-15.webp";
-import weddingImg16 from "@assets/wedding/gallery/wedding-16.webp";
-import weddingImg17 from "@assets/wedding/gallery/wedding-17.webp";
-import weddingImg18 from "@assets/wedding/gallery/wedding-18.webp";
-import weddingImg19 from "@assets/wedding/gallery/wedding-19.webp";
-import weddingImg20 from "@assets/wedding/gallery/wedding-20.webp";
+import weddingImg1 from "@assets/wedding/gallery/Ada-Street-Chicago-Wedding-DJ-Miss-Haze.webp";
+import weddingImg2 from "@assets/wedding/gallery/Broadmoor-Colorado-Springs-Wedding-DJ-Miss-Haze.webp";
+import weddingImg3 from "@assets/wedding/gallery/dj-miss-haze-best-wedding-dj-book-now.webp";
+import weddingImg4 from "@assets/wedding/gallery/dj-miss-haze-best-wedding-dj-in-chicago-book-now.webp";
+import weddingImg5 from "@assets/wedding/gallery/DJ-Miss-Haze-club-type-wedding-bride.webp";
+import weddingImg6 from "@assets/wedding/gallery/dj-miss-haze-letting-bride-spin-at-wedding-colorado.webp";
+import weddingImg7 from "@assets/wedding/gallery/DJ-Miss-Haze-newlyweds-1st-Dance.webp";
+import weddingImg8 from "@assets/wedding/gallery/DJ-Miss-Haze-wedding-DJ-bouquet-toss.webp";
+import weddingImg9 from "@assets/wedding/gallery/dj-miss-haze-wedding-dj-chicago-dallas-denver.webp";
+import weddingImg10 from "@assets/wedding/gallery/DJ-Miss-Haze-Wedding-DJ-Colorado.webp";
+import weddingImg11 from "@assets/wedding/gallery/dj-miss-haze-wedding-dj-in-colorado.webp";
+import weddingImg12 from "@assets/wedding/gallery/dj-miss-haze-wedding-dj-top-rated.webp";
+import weddingImg13 from "@assets/wedding/gallery/DJ-Miss-Haze-Wedding-DJ-Vibe.webp";
+import weddingImg14 from "@assets/wedding/gallery/DJ-Miss-Haze-Wedding-Venue.webp";
+import weddingImg15 from "@assets/wedding/gallery/Estes-Park-Resort-CO-Wedding-couple-and-dj-miss-haze.webp";
+import weddingImg16 from "@assets/wedding/gallery/Estes-Park-Resort-dancing-bride-DJ-Miss-Haze.webp";
+import weddingImg17 from "@assets/wedding/gallery/Estes-Park-Resort-Wedding-DJ-Miss-Haze.webp";
+import weddingImg18 from "@assets/wedding/gallery/hype-bride-wedding-reception.webp";
+import weddingImg19 from "@assets/wedding/gallery/The-Gardenia-Venue-Valley-View-Texas-Wedding-DJ-Miss-Haze.webp";
+import weddingImg20 from "@assets/wedding/gallery/Societe-Privee-Chicago-Wedding-Network.webp";
+import weddingImg21 from "@assets/wedding/gallery/Wedding-DJ-Three-Peaks-Ranch-DJ-Miss-Haze-COLORADO.webp";
+
+// Private gallery images
+import privateImg1 from "@assets/private/gallery/Private-Event-DJ-Miss-Haze.webp";
+import privateImg2 from "@assets/private/gallery/Private-Event-DJ-Chicago.webp";
+import privateImg3 from "@assets/private/gallery/Private-Events-DJ-energy-chicago.webp";
+import privateImg4 from "@assets/private/gallery/DJ-Miss-Haze-Event-DJ-and-MC.webp";
+import privateImg5 from "@assets/private/gallery/Pro-Mobile-DJ-Chicago.webp";
+import privateImg6 from "@assets/private/gallery/Private-Event-book-DJ-now-Colorado.webp";
+import privateImg7 from "@assets/private/gallery/female-DJ-chicago-rooftop.webp";
+import privateImg8 from "@assets/private/gallery/Female-DJ-Glenview-Illinois.webp";
+
+// Other events gallery images
+import otherImg1 from "@assets/other/gallery/DJ-Miss-Haze-event-dj-chicago.webp";
+import otherImg2 from "@assets/other/gallery/Female-DJ-book-now-Colorado.webp";
+import otherImg3 from "@assets/other/gallery/Mobile-DJ-Chicago-DJ-Miss-Haze.webp";
+import otherImg4 from "@assets/other/gallery/Societe-Privee-DJ-Miss-Haze.webp";
 
 // Corporate gallery images
 import corpImg1 from "@assets/corporate/gallery/Brand-Event-DJ-Setup-Chicago.webp";
@@ -55,25 +72,26 @@ interface GalleryImage {
 
 const weddingImages: GalleryImage[] = [
   { id: 1, src: weddingImg1, title: "Ada Street Chicago Wedding" },
-  { id: 2, src: weddingImg2, title: "Broadmoor Colorado Springs" },
-  { id: 3, src: weddingImg3, title: "Best Wedding DJ" },
-  { id: 4, src: weddingImg4, title: "Chicago Wedding DJ" },
-  { id: 5, src: weddingImg5, title: "Club Style Wedding" },
-  { id: 6, src: weddingImg6, title: "Bride Spinning" },
+  { id: 2, src: weddingImg2, title: "Broadmoor Colorado Springs Wedding" },
+  { id: 3, src: weddingImg3, title: "Best Wedding DJ Book Now" },
+  { id: 4, src: weddingImg4, title: "Best Wedding DJ in Chicago" },
+  { id: 5, src: weddingImg5, title: "Club Style Wedding Bride" },
+  { id: 6, src: weddingImg6, title: "Bride Spinning at Wedding Colorado" },
   { id: 7, src: weddingImg7, title: "Newlyweds First Dance" },
-  { id: 8, src: weddingImg8, title: "Bouquet Toss" },
-  { id: 9, src: weddingImg9, title: "Chicago Dallas Denver" },
-  { id: 10, src: weddingImg10, title: "Colorado Wedding DJ" },
+  { id: 8, src: weddingImg8, title: "Wedding DJ Bouquet Toss" },
+  { id: 9, src: weddingImg9, title: "Wedding DJ Chicago Dallas Denver" },
+  { id: 10, src: weddingImg10, title: "Wedding DJ Colorado" },
   { id: 11, src: weddingImg11, title: "Wedding DJ in Colorado" },
   { id: 12, src: weddingImg12, title: "Top Rated Wedding DJ" },
   { id: 13, src: weddingImg13, title: "Wedding DJ Vibe" },
   { id: 14, src: weddingImg14, title: "Wedding Venue" },
-  { id: 15, src: weddingImg15, title: "Estes Park Resort Couple" },
-  { id: 16, src: weddingImg16, title: "Estes Park Dancing Bride" },
+  { id: 15, src: weddingImg15, title: "Estes Park Resort Wedding Couple" },
+  { id: 16, src: weddingImg16, title: "Estes Park Resort Dancing Bride" },
   { id: 17, src: weddingImg17, title: "Estes Park Resort Wedding" },
-  { id: 18, src: weddingImg18, title: "Hype Bride Reception" },
-  { id: 19, src: weddingImg19, title: "The Gardenia Venue Texas" },
-  { id: 20, src: weddingImg20, title: "Three Peaks Ranch Colorado" },
+  { id: 18, src: weddingImg18, title: "Hype Bride Wedding Reception" },
+  { id: 19, src: weddingImg19, title: "The Gardenia Venue Valley View Texas" },
+  { id: 20, src: weddingImg20, title: "Societe Privee Chicago Wedding Network" },
+  { id: 21, src: weddingImg21, title: "Three Peaks Ranch Colorado Wedding" },
 ];
 
 const corporateImages: GalleryImage[] = [
@@ -98,36 +116,55 @@ const corporateImages: GalleryImage[] = [
   { id: 19, src: corpImg19, title: "Kansas City Corporate Event" },
 ];
 
+const privateImages: GalleryImage[] = [
+  { id: 1, src: privateImg1, title: "Private Event DJ Miss Haze" },
+  { id: 2, src: privateImg2, title: "Private Event DJ Chicago" },
+  { id: 3, src: privateImg3, title: "Private Events DJ Energy Chicago" },
+  { id: 4, src: privateImg4, title: "DJ Miss Haze Event DJ and MC" },
+  { id: 5, src: privateImg5, title: "Pro Mobile DJ Chicago" },
+  { id: 6, src: privateImg6, title: "Private Event Book DJ Now Colorado" },
+  { id: 7, src: privateImg7, title: "Female DJ Chicago Rooftop" },
+  { id: 8, src: privateImg8, title: "Female DJ Glenview Illinois" },
+];
+
+const otherImages: GalleryImage[] = [
+  { id: 1, src: otherImg1, title: "Event DJ Miss Haze Chicago" },
+  { id: 2, src: otherImg2, title: "Female DJ Book Now Colorado" },
+  { id: 3, src: otherImg3, title: "Mobile DJ Chicago DJ Miss Haze" },
+  { id: 4, src: otherImg4, title: "Societe Privee DJ Miss Haze" },
+];
+
 export function GalleryPreview() {
   const { layout } = useTheme();
   const isCorporate = layout === "corporate_event";
+  const isPrivate = layout === "private_event";
+  const isPrShow = layout === "pr_show";
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const preloadedImages = useRef<HTMLImageElement[]>([]);
-  
-  const images = isCorporate ? corporateImages : weddingImages;
+
+  const images = isCorporate ? corporateImages : isPrivate ? privateImages : isPrShow ? otherImages : weddingImages;
 
   useEffect(() => {
     setCurrentIndex(0);
     setImagesLoaded(false);
-  }, [isCorporate]);
+  }, [layout]);
 
   useEffect(() => {
-    const imagesToPreload = isCorporate ? corporateImages : weddingImages;
     let loadedCount = 0;
-    preloadedImages.current = imagesToPreload.map((img) => {
+    preloadedImages.current = images.map((img) => {
       const image = new Image();
       image.src = img.src;
       image.onload = () => {
         loadedCount++;
-        if (loadedCount === imagesToPreload.length) {
+        if (loadedCount === images.length) {
           setImagesLoaded(true);
         }
       };
       return image;
     });
-  }, [isCorporate]);
+  }, [layout]);
 
   useEffect(() => {
     if (!isAutoPlaying || !imagesLoaded) return;
@@ -153,8 +190,6 @@ export function GalleryPreview() {
   };
 
   const safeIndex = Math.min(currentIndex, images.length - 1);
-  const isPrivate = layout === "private_event";
-  const isPrShow = layout === "pr_show";
   const galleryTitle = isCorporate ? "Gallery" : isPrivate ? "Private Event Gallery" : isPrShow ? "Events Gallery" : "Wedding Gallery";
 
   return (

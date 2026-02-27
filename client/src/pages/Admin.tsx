@@ -29,9 +29,9 @@ import {
 } from "@/hooks/use-event-content";
 
 import defaultCorporateHero from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-Dallas-Denver-Chicago.webp";
-import defaultWeddingHero from "@assets/wedding/hero/wedding-hero.webp";
-import defaultPrivateHero from "@assets/private/hero/private-hero.webp";
-import defaultOtherHero from "@assets/pr_show/hero/pr-show-hero.webp";
+import defaultWeddingHero from "@assets/wedding/hero/Wedding-DJ-Chicago-Denver-Dallas-book-now.webp";
+import defaultPrivateHero from "@assets/private/hero/Private-Events-DJ-book-now-female-DJ.webp";
+import defaultOtherHero from "@assets/other/hero/Event-DJ-Chicago-book-now-for-your-next-event.webp";
 
 type TabKey = "inquiries" | "corporate" | "private" | "wedding" | "other";
 
