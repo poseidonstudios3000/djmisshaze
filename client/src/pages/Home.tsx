@@ -78,12 +78,12 @@ export default function Home() {
         <div className="absolute inset-0 z-[1] opacity-30 md:opacity-25" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
         <div className="hidden lg:block absolute inset-0 z-[1] opacity-25" style={{ background: "radial-gradient(ellipse at 65% 50%, hsl(var(--primary) / 0.4), transparent 60%)" }} />
 
-        {/* Transparent DJ image — centered on mobile/tablet, right-side on desktop */}
+        {/* Transparent DJ image — top-center on mobile/tablet, right-side on desktop */}
         <motion.img
           key={layout}
           src={transparentImages[layout]}
           alt="DJ Miss Haze"
-          className="absolute z-[2] inset-0 m-auto -mt-[4vh] sm:-mt-[5vh] md:-mt-[6vh] h-[55vh] sm:h-[58vh] md:h-[60vh] w-auto object-contain pointer-events-none select-none lg:inset-auto lg:m-0 lg:mt-0 lg:bottom-0 lg:right-[5%] lg:h-[85vh]"
+          className="absolute z-[2] top-[4vh] left-1/2 -translate-x-1/2 h-[45vh] sm:h-[48vh] md:h-[52vh] w-auto object-contain pointer-events-none select-none lg:top-auto lg:left-auto lg:translate-x-0 lg:bottom-0 lg:right-[5%] lg:h-[85vh]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -92,7 +92,7 @@ export default function Home() {
         />
 
         {/* Gradient overlay on mobile/tablet — DJ visible on top, fades to dark at bottom for text */}
-        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background from-30% via-background/50 via-55% to-transparent lg:hidden" />
+        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background from-35% via-background/60 via-50% to-transparent lg:hidden" />
         {/* Bottom fade on desktop */}
         <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-40 z-[3] bg-gradient-to-t from-background to-transparent" />
 
