@@ -43,6 +43,9 @@ export function FooterCTA() {
           </a>
         </div>
       </div>
+      <div className="container mx-auto text-center pt-2 md:pt-0">
+        <p className="text-[10px] text-white/30 tracking-widest uppercase">Dallas, TX &nbsp;|&nbsp; Chicago, IL &nbsp;|&nbsp; Denver, CO</p>
+      </div>
     </div>
   );
 }

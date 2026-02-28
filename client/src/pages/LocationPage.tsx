@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
@@ -67,6 +67,12 @@ export default function LocationPage({ location }: LocationPageProps) {
   const targetRef = useRef<HTMLDivElement>(null);
   const heroImage = cityImages[location];
   const locationData = locations[location];
+
+  useEffect(() => {
+    document.title = locationData.seoTitle;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", locationData.seoDescription);
+  }, [location, locationData]);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden pt-14">

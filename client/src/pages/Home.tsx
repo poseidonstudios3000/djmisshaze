@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin } from "lucide-react";
 
@@ -40,6 +40,20 @@ const layoutToFormEventType: Record<string, string> = {
   pr_show: "other",
 };
 
+const heroAltText: Record<string, string> = {
+  corporate_event: "DJ Miss Haze performing at a Corporate Event in Chicago, Dallas, Denver",
+  wedding: "DJ Miss Haze Wedding DJ and MC in Chicago, Dallas, Denver",
+  private_event: "DJ Miss Haze Private Event DJ in Chicago, Dallas, Denver",
+  pr_show: "DJ Miss Haze Event DJ and MC for Brand Activations and PR Events",
+};
+
+const pageTitles: Record<string, string> = {
+  corporate_event: "Corporate Event DJ & MC | DJ Miss Haze | Dallas, Chicago, Denver",
+  wedding: "Wedding DJ & MC | DJ Miss Haze | Dallas, Chicago, Denver",
+  private_event: "Private Event DJ & MC | DJ Miss Haze | Dallas, Chicago, Denver",
+  pr_show: "Event DJ & MC | DJ Miss Haze | Brand Activations & PR Events",
+};
+
 // Preload all hero images immediately so switching themes is instant
 Object.values(transparentImages).forEach((src) => {
   const link = document.createElement("link");
@@ -53,6 +67,10 @@ export default function Home() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { layout } = useTheme();
   const currentLayout = layouts[layout];
+
+  useEffect(() => {
+    document.title = pageTitles[layout] || "DJ Miss Haze | Premium Event DJ & MC";
+  }, [layout]);
   const { getImage } = useSiteImages();
   const aboutImage = getImage("about_photo");
   const evtType = getEventType(layout);
@@ -91,7 +109,7 @@ export default function Home() {
         <img
           key={layout}
           src={transparentImages[layout]}
-          alt="DJ Miss Haze"
+          alt={heroAltText[layout] || "DJ Miss Haze Event DJ and MC"}
           className="absolute z-[2] top-[4vh] left-0 right-0 mx-auto h-[45vh] sm:h-[48vh] md:h-[52vh] w-auto object-contain pointer-events-none select-none lg:top-auto lg:left-auto lg:right-[5%] lg:mx-0 lg:bottom-0 lg:h-[75vh]"
           loading="eager"
           decoding="sync"
