@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { Link } from "wouter";
+
 import { Navbar } from "@/components/Navbar";
 import { FooterCTA } from "@/components/FooterCTA";
 import { VibeReel } from "@/components/VibeReel";
@@ -39,6 +39,15 @@ const layoutToFormEventType: Record<string, string> = {
   private_event: "private",
   pr_show: "other",
 };
+
+// Preload all hero images immediately so switching themes is instant
+Object.values(transparentImages).forEach((src) => {
+  const link = document.createElement("link");
+  link.rel = "preload";
+  link.as = "image";
+  link.href = src;
+  document.head.appendChild(link);
+});
 
 export default function Home() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -79,16 +88,14 @@ export default function Home() {
         <div className="hidden lg:block absolute inset-0 z-[1] opacity-25" style={{ background: "radial-gradient(ellipse at 65% 50%, hsl(var(--primary) / 0.4), transparent 60%)" }} />
 
         {/* Transparent DJ image — top-center on mobile/tablet, right-side on desktop */}
-        <motion.img
+        <img
           key={layout}
           src={transparentImages[layout]}
           alt="DJ Miss Haze"
           className="absolute z-[2] top-[4vh] left-0 right-0 mx-auto h-[45vh] sm:h-[48vh] md:h-[52vh] w-auto object-contain pointer-events-none select-none lg:top-auto lg:left-auto lg:right-[5%] lg:mx-0 lg:bottom-0 lg:h-[75vh]"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
           loading="eager"
-          decoding="async"
+          decoding="sync"
+          fetchPriority="high"
         />
 
         {/* Gradient overlay on mobile/tablet — DJ visible on top, fades to dark at bottom for text */}

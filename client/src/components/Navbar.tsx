@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Instagram, Facebook } from "lucide-react";
-import { Link } from "wouter";
 import { ThemeSelector } from "./ThemeSelector";
 
 const TikTok = () => (
@@ -30,11 +29,12 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 h-14 flex items-center justify-between gap-2">
         <div className="flex items-center gap-4 shrink-0">
-          <Link href="/">
-            <div className="text-sm md:text-xl font-black tracking-tighter cursor-pointer text-foreground transition-colors font-display uppercase shrink-0">
-              DJ MISS HAZE
-            </div>
-          </Link>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-sm md:text-xl font-black tracking-tighter cursor-pointer text-foreground transition-colors font-display uppercase shrink-0"
+          >
+            DJ MISS HAZE
+          </button>
 
           <div className="flex items-center gap-1">
             {socials.map((social) => {
