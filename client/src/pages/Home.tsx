@@ -71,7 +71,7 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section ref={targetRef} className="h-screen relative overflow-hidden">
+      <section ref={targetRef} className="h-screen lg:h-[85vh] relative overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background to-primary/15" />
         {/* Subtle radial glow — centered on mobile, right-biased on desktop */}
@@ -83,7 +83,7 @@ export default function Home() {
           key={layout}
           src={transparentImages[layout]}
           alt="DJ Miss Haze"
-          className="absolute z-[2] top-[4vh] left-0 right-0 mx-auto h-[45vh] sm:h-[48vh] md:h-[52vh] w-auto object-contain pointer-events-none select-none lg:top-auto lg:left-auto lg:right-[5%] lg:mx-0 lg:bottom-0 lg:h-[85vh]"
+          className="absolute z-[2] top-[4vh] left-0 right-0 mx-auto h-[45vh] sm:h-[48vh] md:h-[52vh] w-auto object-contain pointer-events-none select-none lg:top-auto lg:left-auto lg:right-[5%] lg:mx-0 lg:bottom-0 lg:h-[75vh]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

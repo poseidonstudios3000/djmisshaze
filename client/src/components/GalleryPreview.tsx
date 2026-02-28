@@ -141,38 +141,35 @@ export function GalleryPreview() {
   const isPrShow = layout === "pr_show";
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const preloadedImages = useRef<HTMLImageElement[]>([]);
+  const preloadedSet = useRef<Set<string>>(new Set());
 
   const images = isCorporate ? corporateImages : isPrivate ? privateImages : isPrShow ? otherImages : weddingImages;
 
   useEffect(() => {
     setCurrentIndex(0);
-    setImagesLoaded(false);
+    preloadedSet.current.clear();
   }, [layout]);
 
+  // Preload only current + next 2 images ahead
   useEffect(() => {
-    let loadedCount = 0;
-    preloadedImages.current = images.map((img) => {
-      const image = new Image();
-      image.src = img.src;
-      image.onload = () => {
-        loadedCount++;
-        if (loadedCount === images.length) {
-          setImagesLoaded(true);
-        }
-      };
-      return image;
-    });
-  }, [layout]);
+    for (let offset = 0; offset <= 2; offset++) {
+      const idx = (currentIndex + offset) % images.length;
+      const src = images[idx].src;
+      if (!preloadedSet.current.has(src)) {
+        preloadedSet.current.add(src);
+        const img = new Image();
+        img.src = src;
+      }
+    }
+  }, [currentIndex, images]);
 
   useEffect(() => {
-    if (!isAutoPlaying || !imagesLoaded) return;
+    if (!isAutoPlaying) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 2000);
     return () => clearInterval(timer);
-  }, [isAutoPlaying, imagesLoaded, images.length]);
+  }, [isAutoPlaying, images.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -222,12 +219,6 @@ export function GalleryPreview() {
                 decoding="async"
               />
             </AnimatePresence>
-
-            {!imagesLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-zinc-900/80">
-                <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-              </div>
-            )}
 
             <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/80 to-transparent">
               <p className="font-bold text-lg md:text-xl text-white font-display">

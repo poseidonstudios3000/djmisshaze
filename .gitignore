@@ -5,3 +5,4 @@ dist/
 assets/originals/
 public/uploads/
 .vercel
+.env.vercel

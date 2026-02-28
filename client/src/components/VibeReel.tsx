@@ -113,6 +113,7 @@ export function VibeReel() {
               controls
               autoPlay
               playsInline
+              preload="none"
             />
           </motion.div>
           
