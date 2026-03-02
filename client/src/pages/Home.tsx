@@ -98,54 +98,47 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section ref={targetRef} className="h-screen lg:h-[85vh] relative overflow-hidden">
+      <section ref={targetRef} className="relative overflow-hidden" style={{ height: "calc(100dvh - 56px)" }}>
         {/* Background gradient */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background to-primary/15" />
-        {/* Subtle radial glow — centered on mobile, right-biased on desktop */}
-        <div className="absolute inset-0 z-[1] opacity-30 md:opacity-25" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
-        <div className="hidden lg:block absolute inset-0 z-[1] opacity-25" style={{ background: "radial-gradient(ellipse at 65% 50%, hsl(var(--primary) / 0.4), transparent 60%)" }} />
+        {/* Centered radial glow */}
+        <div className="absolute inset-0 z-[1] opacity-30" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
 
-        {/* Transparent DJ image — top-center on mobile/tablet, right-side on desktop */}
+        {/* Transparent DJ image — centered, pushed up so face is visible in upper half */}
         <img
           key={layout}
           src={transparentImages[layout]}
           alt={heroAltText[layout] || "DJ Miss Haze Event DJ and MC"}
-          className="absolute z-[2] top-[4vh] left-0 right-0 mx-auto h-[45vh] sm:h-[48vh] md:h-[52vh] w-auto object-contain pointer-events-none select-none lg:top-auto lg:left-auto lg:right-[5%] lg:mx-0 lg:bottom-0 lg:h-[75vh]"
+          className="absolute z-[2] top-0 left-1/2 -translate-x-1/2 h-[85%] sm:h-[88%] md:h-[90%] w-auto object-contain object-top pointer-events-none select-none"
           loading="eager"
           decoding="sync"
           fetchPriority="high"
         />
 
-        {/* Gradient overlay on mobile/tablet — DJ visible on top, fades to dark at bottom for text */}
-        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background from-35% via-background/60 via-50% to-transparent lg:hidden" />
-        {/* Bottom fade on desktop */}
-        <div className="hidden lg:block absolute bottom-0 left-0 right-0 h-40 z-[3] bg-gradient-to-t from-background to-transparent" />
+        {/* Dark overlay — heavier at bottom for form readability, transparent at top for face visibility */}
+        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background from-20% via-background/70 via-50% to-background/20" />
 
-        {/* Text content */}
-        <div className="container mx-auto relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 h-full flex flex-col justify-end pb-[88px] sm:pb-[92px] md:pb-[96px] lg:justify-center lg:pb-0">
-          <div className="space-y-2 sm:space-y-3 md:space-y-5 lg:space-y-6 text-center lg:text-left lg:max-w-[50%]">
-            <div className="flex flex-col items-center lg:items-start w-full">
-              <h1 className="text-[12vw] sm:text-[12vw] md:text-[10vw] lg:text-[6.5vw] leading-none font-black font-display tracking-tighter text-white flex justify-between sm:justify-center lg:justify-start sm:gap-[0.03em] uppercase w-full sm:w-auto">
-                <span>D</span><span>J</span><span className="ml-[0.08em]">M</span><span>I</span><span>S</span><span>S</span><span className="ml-[0.08em]">H</span><span>A</span><span>Z</span><span>E</span>
-              </h1>
-            </div>
+        {/* Text content — pushed to lower portion, form near bottom */}
+        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6">
+          <div className="w-full max-w-2xl text-center">
+            <h1 className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[5.5vw] leading-none font-black font-display tracking-tighter text-white flex justify-center gap-[0.03em] uppercase mb-1">
+              <span>D</span><span>J</span><span className="ml-[0.08em]">M</span><span>I</span><span>S</span><span>S</span><span className="ml-[0.08em]">H</span><span>A</span><span>Z</span><span>E</span>
+            </h1>
 
-            <p className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-primary uppercase tracking-[0.12em] sm:tracking-[0.15em] md:tracking-[0.2em] whitespace-pre-line">
+            <p className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold text-primary uppercase tracking-[0.12em] sm:tracking-[0.15em] md:tracking-[0.2em] whitespace-pre-line mb-1">
               {heroSubtitle}
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 md:gap-5 lg:gap-6 text-[10px] sm:text-xs md:text-base lg:text-lg font-bold text-white/80 uppercase tracking-wider md:tracking-widest">
+            <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3 text-[8px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-white/80 uppercase tracking-wider md:tracking-widest mb-2 sm:mb-3">
               {eventContent.hero.locations.map((location: string, index: number) => (
-                <span key={index} className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
-                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-primary" />
+                <span key={index} className="flex items-center gap-1 sm:gap-1.5">
+                  <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5 text-primary" />
                   <span>{location}</span>
                 </span>
               ))}
             </div>
 
-            <div className="pt-1 sm:pt-2 md:pt-4 lg:pt-6">
-              <CompactBookingForm defaultEventType={eventType} />
-            </div>
+            <CompactBookingForm defaultEventType={eventType} />
           </div>
         </div>
       </section>
