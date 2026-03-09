@@ -20,17 +20,23 @@ import { layouts } from "@/styles/themes";
 import { usePosts } from "@/hooks/use-posts";
 import { useEventContent, layoutToEventType as getEventType } from "@/hooks/use-event-content";
 import { useSiteImages } from "@/hooks/use-site-images";
-import corporateImg from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-Dallas-Denver-Chicago.webp";
-import corporateTransparent from "@assets/corporate/hero/Corporate-Events-DJ-Miss-Haze-transparent.webp";
-import weddingTransparent from "@assets/wedding/hero/Wedding-DJ-Chicago-Denver-Dallas-transparent.webp";
-import privateTransparent from "@assets/private/hero/Private-Events-DJ-transparent.webp";
-import otherTransparent from "@assets/other/hero/Event-DJ-Chicago-transparent.webp";
+import corporateImg from "@assets/corporate/hero/DJ-Miss-Haze-Hero-Image-corporate.webp";
+import weddingImg from "@assets/wedding/hero/DJ-Miss-Haze-Hero-Image-wedding.webp";
+import privateImg from "@assets/private/hero/DJ-Miss-Haze-Hero-Image-private.webp";
+import otherImg from "@assets/other/hero/DJ-Miss-Haze-Hero-Image-other.webp";
 
-const transparentImages: Record<string, string> = {
-  corporate_event: corporateTransparent,
-  wedding: weddingTransparent,
-  private_event: privateTransparent,
-  pr_show: otherTransparent,
+const heroImages: Record<string, string> = {
+  corporate_event: corporateImg,
+  wedding: weddingImg,
+  private_event: privateImg,
+  pr_show: otherImg,
+};
+
+const heroBgColor: Record<string, string> = {
+  corporate_event: "rgb(141,144,125)",
+  wedding: "rgb(140,143,124)",
+  private_event: "rgb(163,139,106)",
+  pr_show: "rgb(142,122,94)",
 };
 
 const layoutToFormEventType: Record<string, string> = {
@@ -55,7 +61,7 @@ const pageTitles: Record<string, string> = {
 };
 
 // Preload all hero images immediately so switching themes is instant
-Object.values(transparentImages).forEach((src) => {
+Object.values(heroImages).forEach((src) => {
   const link = document.createElement("link");
   link.rel = "preload";
   link.as = "image";
@@ -98,25 +104,25 @@ export default function Home() {
       <Navbar />
 
       {/* 1. Hero Section */}
-      <section ref={targetRef} className="relative overflow-hidden" style={{ height: "calc(100dvh - 56px)" }}>
+      <section ref={targetRef} className="relative overflow-hidden" style={{ height: "calc(100dvh - 56px)", backgroundColor: heroBgColor[layout] || "rgb(141,144,125)" }}>
         {/* Background gradient */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background to-primary/15" />
+        <div className="hidden sm:block absolute inset-0 z-0 bg-gradient-to-br from-background via-background to-primary/15" />
         {/* Centered radial glow */}
-        <div className="absolute inset-0 z-[1] opacity-30" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
+        <div className="hidden sm:block absolute inset-0 z-[1] opacity-30" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
 
         {/* Transparent DJ image — centered, pushed up so face is visible in upper half */}
         <img
           key={layout}
-          src={transparentImages[layout]}
+          src={heroImages[layout]}
           alt={heroAltText[layout] || "DJ Miss Haze Event DJ and MC"}
-          className="absolute z-[2] top-0 left-1/2 -translate-x-1/2 h-[85%] sm:h-[88%] md:h-[90%] w-auto object-contain object-top pointer-events-none select-none"
+          className="absolute z-[2] top-0 left-1/2 -translate-x-1/2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-full sm:h-auto object-cover sm:object-contain object-top pointer-events-none select-none"
           loading="eager"
           decoding="sync"
           fetchPriority="high"
         />
 
         {/* Dark overlay — heavier at bottom for form readability, transparent at top for face visibility */}
-        <div className="absolute inset-0 z-[3] bg-gradient-to-t from-background from-20% via-background/70 via-50% to-background/20" />
+        <div className="hidden sm:block absolute inset-0 z-[3] bg-gradient-to-t from-background from-5% via-background/30 via-30% to-transparent" />
 
         {/* Text content — pushed to lower portion, form near bottom */}
         <div className="relative z-10 h-full flex flex-col items-center justify-end pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6">

@@ -224,17 +224,17 @@
   color: hsl(209 100% 71%);       /* Light #6BB8FF */
 }
 
-/* WEDDING (Ember) */
+/* WEDDING (Blush Clay) */
 [data-layout="wedding"] {
-  --primary: 18 100% 59%;         /* Mid #FF6B2C */
+  --primary: 8 48% 53%;           /* Mid #CC7062 */
   --primary-foreground: 0 0% 100%;
-  --ring: 18 100% 59%;
-  --gradient-from: 11 82% 51%;    /* Dark #E8441E */
-  --gradient-via: 18 100% 59%;    /* Mid  #FF6B2C */
-  --gradient-to: 26 100% 71%;     /* Light #FFAA6B */
+  --ring: 8 48% 53%;
+  --gradient-from: 5 46% 47%;     /* Dark #B04C44 */
+  --gradient-via: 8 48% 53%;      /* Mid  #CC7062 */
+  --gradient-to: 11 60% 76%;      /* Light #E8AA9C */
 }
 [data-layout="wedding"] .text-primary {
-  color: hsl(26 100% 71%);        /* Light #FFAA6B */
+  color: hsl(11 60% 76%);         /* Light #E8AA9C */
 }
 
 /* PRIVATE (Saffron) */
