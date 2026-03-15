@@ -148,8 +148,8 @@ export default function Home() {
       {(() => {
         const tickerItems = eventContent.ticker.items;
         const tickerContent = tickerItems.map((item, j) => (
-          <span key={j} className="shrink-0 flex items-center gap-2">
-            <span className="flex">
+          <span key={j} className="shrink-0 flex items-center">
+            <span className="flex mx-4">
               {[...Array(5)].map((_, i) => (
                 <span key={i} className="text-star-gradient">★</span>
               ))}
@@ -161,12 +161,12 @@ export default function Home() {
           <div className="w-full bg-primary py-3 overflow-hidden whitespace-nowrap relative z-30 shadow-lg shadow-primary/20">
             <div className="flex">
               <div className="flex shrink-0 animate-marquee">
-                <div className="flex items-center gap-6 px-4 text-black font-black font-display text-lg uppercase shrink-0">
+                <div className="flex items-center text-black font-black font-display text-lg uppercase shrink-0">
                   {tickerContent}
                 </div>
               </div>
               <div className="flex shrink-0 animate-marquee" aria-hidden="true">
-                <div className="flex items-center gap-6 px-4 text-black font-black font-display text-lg uppercase shrink-0">
+                <div className="flex items-center text-black font-black font-display text-lg uppercase shrink-0">
                   {tickerContent}
                 </div>
               </div>
