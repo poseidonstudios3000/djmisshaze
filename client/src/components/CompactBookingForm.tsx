@@ -98,7 +98,7 @@ export function CompactBookingForm({ defaultLocation, defaultEventType }: Compac
   const form = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
-      eventType: defaultEventType || "",
+      eventType: "",
       location: defaultLocation ? locationMap[defaultLocation] || "" : "",
       date: "",
       name: "",

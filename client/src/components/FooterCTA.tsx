@@ -3,11 +3,14 @@ import { useTheme } from "@/context/ThemeContext";
 
 export function FooterCTA() {
   const { layout } = useTheme();
-  const isWedding = layout === "wedding";
-  
-  const tagline = isWedding 
-    ? "Say Yes to an Elevated DJ Experience" 
-    : "Ready to boost your brand?";
+  const taglines: Record<string, string> = {
+    wedding: "Say Yes to an Elevated DJ Experience",
+    corporate_event: "Ready to boost your brand?",
+    private_event: "Are you ready for an awesome experience?",
+    pr_show: "Are you ready to Party?",
+  };
+
+  const tagline = taglines[layout] || "Ready to boost your brand?";
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-lg border-t border-white/10 px-4 py-3">
@@ -20,7 +23,7 @@ export function FooterCTA() {
           </span>
         </div>
 
-        <p className="hidden md:block text-[10px] text-white/30 tracking-widest uppercase">Dallas, TX &nbsp;|&nbsp; Chicago, IL &nbsp;|&nbsp; Denver, CO</p>
+        <p className="hidden md:block text-[10px] text-white/30 tracking-widest uppercase">Chicago, IL &nbsp;|&nbsp; Dallas, TX &nbsp;|&nbsp; Denver, CO</p>
 
         <div className="flex w-full md:w-auto gap-2">
           <a

@@ -20,16 +20,16 @@ import { layouts } from "@/styles/themes";
 import { usePosts } from "@/hooks/use-posts";
 import { useEventContent, layoutToEventType as getEventType } from "@/hooks/use-event-content";
 import { useSiteImages } from "@/hooks/use-site-images";
-import corporateImg from "@assets/corporate/hero/DJ-Miss-Haze-Hero-Image-corporate.webp";
-import weddingImg from "@assets/wedding/hero/DJ-Miss-Haze-Hero-Image-wedding.webp";
-import privateImg from "@assets/private/hero/DJ-Miss-Haze-Hero-Image-private.webp";
-import otherImg from "@assets/other/hero/DJ-Miss-Haze-Hero-Image-other.webp";
+import corporateWideImg from "@assets/corporate/hero/corporate-events-wide.webp";
+import weddingWideImg from "@assets/wedding/hero/wedding-events-wide.webp";
+import privateWideImg from "@assets/private/hero/private-events-wide.webp";
+import otherWideImg from "@assets/other/hero/other-events-wide.webp";
 
 const heroImages: Record<string, string> = {
-  corporate_event: corporateImg,
-  wedding: weddingImg,
-  private_event: privateImg,
-  pr_show: otherImg,
+  corporate_event: corporateWideImg,
+  wedding: weddingWideImg,
+  private_event: privateWideImg,
+  pr_show: otherWideImg,
 };
 
 const heroBgColor: Record<string, string> = {
@@ -105,17 +105,12 @@ export default function Home() {
 
       {/* 1. Hero Section */}
       <section ref={targetRef} className="relative overflow-hidden" style={{ height: "calc(100dvh - 56px)", backgroundColor: heroBgColor[layout] || "rgb(141,144,125)" }}>
-        {/* Background gradient */}
-        <div className="hidden sm:block absolute inset-0 z-0 bg-gradient-to-br from-background via-background to-primary/15" />
-        {/* Centered radial glow */}
-        <div className="hidden sm:block absolute inset-0 z-[1] opacity-30" style={{ background: "radial-gradient(ellipse at 50% 40%, hsl(var(--primary) / 0.5), transparent 70%)" }} />
-
-        {/* Transparent DJ image — centered, pushed up so face is visible in upper half */}
+        {/* Hero image — wide images covering full viewport */}
         <img
           key={layout}
           src={heroImages[layout]}
           alt={heroAltText[layout] || "DJ Miss Haze Event DJ and MC"}
-          className="absolute z-[2] top-0 left-1/2 -translate-x-1/2 w-full sm:w-3/4 md:w-2/3 lg:w-1/2 h-full sm:h-auto object-cover sm:object-contain object-top pointer-events-none select-none"
+          className="absolute z-[2] inset-0 w-full h-full object-cover pointer-events-none select-none"
           loading="eager"
           decoding="sync"
           fetchPriority="high"
@@ -191,6 +186,65 @@ export default function Home() {
         <GoogleReviews />
       </section>
 
+      {/* 4.5 Other Events — Energy Architecture + Event Experiences */}
+      {isPrShow && (
+        <section className="container mx-auto px-4 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-black font-display mb-4 uppercase">
+                A White Glove DJ Service That Shapes the Energy of Your Event.
+              </h2>
+              <div className="h-1 w-24 bg-primary rounded-full" />
+            </div>
+
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+              From fundraisers to fashion, shows, sports events and more, DJ Miss Haze designs sound and pacing that connects people, elevates the atmosphere, and keeps your event flowing smoothly.
+            </p>
+
+            <div className="bg-zinc-900/50 p-8 rounded-2xl border border-white/5 space-y-6">
+              <p className="text-xl md:text-2xl font-black font-display text-primary uppercase">
+                This isn't background music. It's energy architecture.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Every event has its unique vibe. My role is to read the room, guide momentum, and create a natural space through entertainment — your guests will feel engaged, present, and connected from the first moment to the last.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Whether the goal is celebration, storytelling, brand impact, or pure hype, the music always supports why people are gathering.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl md:text-3xl font-black font-display mb-8 uppercase">Event Experiences</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "Sports Events & Watch Parties",
+                    text: "Tailgates, fan events, venue game days, tournaments, and celebrations with high-energy pacing and strategic hype moments.",
+                  },
+                  {
+                    title: "Fundraisers & Galas",
+                    text: "Charity events, auctions, and benefit dinners where sound supports storytelling, emotion, and donor engagement.",
+                  },
+                  {
+                    title: "Fashion Shows & Creative Productions",
+                    text: "Runway shows, designer showcases, and editorial events requiring precision timing, curated sound, and brand alignment.",
+                  },
+                  {
+                    title: "Community & Cultural Events",
+                    text: "Festivals, city events, cultural celebrations, and inclusive gatherings that bring diverse audiences together through music.",
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 space-y-3">
+                    <h4 className="text-lg font-black font-display text-primary uppercase">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 5. Vibe Reel */}
       {!isPrivate && !isPrShow && (
         <section className="container mx-auto px-4 py-8 md:py-16">
@@ -232,6 +286,158 @@ export default function Home() {
       <section id="gallery" className="container mx-auto px-4 py-8 md:py-16">
         <GalleryPreview />
       </section>
+
+      {/* 7.5 Why Choose DJ Miss Haze for Your Event (Other Only) */}
+      {isPrShow && (
+        <section className="container mx-auto px-4 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-black font-display mb-4 uppercase">
+                Choose DJ Miss Haze for Your Event
+              </h2>
+              <div className="h-1 w-24 bg-primary rounded-full" />
+            </div>
+
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+              Because your event deserves intention, not just music.
+              <br />
+              <span className="text-white font-bold">
+                DJ Miss Haze is chosen by hosts, planners, and brands who want more than a playlist.
+              </span>{" "}
+              What sets her apart is a disciplined, experience-first approach to sound, flow, and energy — designed to elevate the entire room and leave a lasting impression.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 space-y-3">
+                <h4 className="text-lg font-black font-display text-primary uppercase">Premium, Polished Presentation</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Clean, modern setups that complement your space — not distract from it. Professional sound, thoughtful lighting, and camera-friendly aesthetics are standard.
+                </p>
+              </div>
+
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 space-y-3">
+                <h4 className="text-lg font-black font-display text-primary uppercase">Strategic Planning & White-Glove Execution</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  From your first inquiry to final track, every detail is planned with clarity and care. DJ Miss Haze collaborates seamlessly with planners, venues, producers, and vendors to keep your event running smoothly.
+                </p>
+              </div>
+
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 space-y-3">
+                <h4 className="text-lg font-black font-display text-primary uppercase">Confident Mic Presence</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  When announcements or guidance are needed, they're delivered clearly and tastefully — never overbearing, never awkward.
+                </p>
+              </div>
+
+              <div className="bg-zinc-900/50 p-6 rounded-2xl border border-white/5 space-y-3">
+                <h4 className="text-lg font-black font-display text-primary uppercase">Versatile Across Event Types</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">Trusted for:</p>
+                <ul className="space-y-1.5">
+                  {["Sports Events", "Fundraisers & Galas", "Fashion Shows & Creative Productions", "Community & Cultural Events", "And more."].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">&#10003;</span>
+                      <span className="text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm text-white font-medium italic">The approach adapts; the standard remains.</p>
+              </div>
+            </div>
+
+            <div className="bg-zinc-900/50 p-8 rounded-2xl border border-white/5 space-y-4">
+              <h4 className="text-lg font-black font-display text-primary uppercase">Multi-Market, Travel-Ready</h4>
+              <p className="text-muted-foreground leading-relaxed">
+                Based in Chicago, Dallas-Fort Worth, and Denver — with worldwide travel available — DJ Miss Haze brings consistency and excellence wherever your event is held.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 7.6 Why Choose DJ Miss Haze for Your Wedding (Wedding Only) */}
+      {isWedding && (
+        <section className="container mx-auto px-4 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto space-y-12">
+            <div>
+              <h2 className="text-2xl md:text-4xl font-black font-display mb-4 uppercase">
+                Choose DJ Miss Haze for Your Wedding
+              </h2>
+              <div className="h-1 w-24 bg-primary rounded-full" />
+            </div>
+
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+              Wedding clients who choose DJ Miss Haze become hosts who lead with intention, inclusion, confidence, and elevated taste.
+              <br />
+              <span className="text-white font-bold">
+                They are no longer "hoping the music works" — they are curating an experience people remember and talk about.
+              </span>
+            </p>
+
+            <div className="space-y-4">
+              {[
+                {
+                  from: "Stressed Planners",
+                  to: "Calm, Confident Hosts",
+                  text: "They can trust that every transition, cue, and moment will flow smoothly — allowing them to stay present at their wedding instead of managing details.",
+                },
+                {
+                  from: "Throwing an Event",
+                  to: "Creating an Experience",
+                  text: "Their event feels thoughtful, polished, and immersive — not generic or thrown together.",
+                },
+                {
+                  from: "Playing Music",
+                  to: "Setting the Energy",
+                  text: "They become hosts who understand that how people feel matters.",
+                },
+                {
+                  from: "Entertaining Guests",
+                  to: "Bringing People Together",
+                  text: "Their space feels inclusive, connected, and welcoming — across generations, cultures, and personalities.",
+                },
+                {
+                  from: "Hiring a Vendor",
+                  to: "Partnering with a Professional",
+                  text: "They work with someone who anticipates needs, communicates clearly, and leads with calm authority and mindful presence.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="bg-zinc-900/50 rounded-2xl border border-white/5 p-6 space-y-4">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <span className="text-lg md:text-xl font-black font-display text-white/40 uppercase italic">{item.from}</span>
+                    <span className="text-primary text-lg">&#10132;</span>
+                    <span className="text-lg md:text-xl font-black font-display text-primary uppercase">{item.to}</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-zinc-900/50 p-8 rounded-2xl border border-white/5 space-y-6">
+              <h3 className="text-xl md:text-2xl font-black font-display uppercase">
+                Clients who choose DJ Miss Haze are:
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  { trait: "Intentional", desc: "they care about details and energy" },
+                  { trait: "Quality-driven", desc: "they value professionalism over shortcuts" },
+                  { trait: "Emotionally intelligent", desc: "they want guests to feel something" },
+                  { trait: "Confident leaders", desc: "they host with presence, not anxiety" },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-primary mt-1">&#10003;</span>
+                    <span className="text-muted-foreground">
+                      <span className="text-white font-bold">{item.trait}</span> — {item.desc}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-lg text-white font-medium italic border-l-4 border-primary pl-4">
+                They want their event to reflect who they are, not just what they booked.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 8. Why Companies Choose (Corporate Only) */}
       {isCorporate && (
@@ -336,7 +542,7 @@ export default function Home() {
           </div>
           <div className="relative aspect-square rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
             <img 
-              src={aboutImage || corporateImg} 
+              src={aboutImage || corporateWideImg} 
               alt="DJ Miss Haze biography" 
               className="w-full h-full object-cover"
               loading="lazy"
