@@ -271,12 +271,13 @@ export const DEFAULT_EVENT_CONTENT: Record<EventType, EventSections> = {
       items: [...PRIVATE_FAQ],
     },
     reviews: {
-      title: "PARTY REVIEWS",
+      title: "EVENT REVIEWS",
       ratingText: "5.0 stars",
       items: [
-        { author: "Sarah M.", role: "Birthday Party Host", text: "DJ Miss Haze made our party unforgettable! She read the room perfectly and kept everyone dancing all night long.", rating: 5 },
-        { author: "Marcus T.", role: "Birthday Party Host", text: "Incredible energy and professionalism. She knows exactly how to get the party started and keep it going!", rating: 5 },
-        { author: "Elena R.", role: "Event Planner", text: "I've worked with many DJs over the years, and DJ Miss Haze is truly one of the best. Professional, talented, and always brings the perfect vibe.", rating: 5 },
+        { author: "Rosy", role: "Naperville, IL", text: "DJ Miss Haze was wonderful to work with. Very punctual, professional, friendly with our guests and most important, she played amazing music. I HIGHLY recommend her to be your next DJ.", rating: 5 },
+        { author: "JM", role: "Denver, CO", text: "We used DJ Miss Haze for our elopement reception and she was amazing! We decided within a month of our reception to get a DJ and she was so accommodating and easy to work with. She answered all our questions and stayed in contact up until the reception. She is personable and easy to talk to and all our guests commented on how great she was. We would highly recommend her for anything party! And we would for sure use her again.", rating: 5 },
+        { author: "Marisa", role: "Vail, CO", text: "Where do I begin?!?! You MUST book DJ Haze for your next event! She is absolutely top notch as a person and as a musician. She was kind and responsive from the very first time we communicated. She was open to our ideas for the atmosphere that we wanted to create through her music. The party ended up being beyond our wildest expectations and it was because of her and her music. Our guests didn't want the night to end!!!! Please book her for your next important event, you will be really glad you did. We will definitely use her again and she has even become our friend. She is a wonderful person and has an amazing ear for good music. If I could give her more than 5 stars I would!!!", rating: 5 },
+        { author: "Nikki", role: "Frisco, TX", text: "She is a phenomenal DJ! We have added Miss Haze to our preferred vendor list! She really knows how to get a party started and read the room! I can't thank her enough for the amazing jobs she does for our events!", rating: 5 },
       ],
     },
   },
