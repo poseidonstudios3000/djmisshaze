@@ -19,7 +19,7 @@ export function ThemeSelector() {
     <>
       {/* Desktop: inline text links */}
       <div className="hidden md:flex items-center gap-1 text-xs font-bold tracking-wider">
-        <span className="text-muted-foreground mr-1">Events:</span>
+        <span className="text-muted-foreground mr-1">Select your event experience:</span>
         {layoutOptions.map((opt, i) => (
           <span key={opt.key} className="flex items-center">
             <button

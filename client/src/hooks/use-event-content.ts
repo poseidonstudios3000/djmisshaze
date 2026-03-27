@@ -308,9 +308,9 @@ export const DEFAULT_EVENT_CONTENT: Record<EventType, EventSections> = {
       title: "EVENT REVIEWS",
       ratingText: "5.0 stars",
       items: [
-        { author: "Sarah M.", role: "Birthday Party Host", text: "DJ Miss Haze made our party unforgettable! She read the room perfectly and kept everyone dancing all night long.", rating: 5 },
-        { author: "Marcus T.", role: "Birthday Party Host", text: "Incredible energy and professionalism. She knows exactly how to get the party started and keep it going!", rating: 5 },
-        { author: "Elena R.", role: "Event Planner", text: "I've worked with many DJs over the years, and DJ Miss Haze is truly one of the best. Professional, talented, and always brings the perfect vibe.", rating: 5 },
+        { author: "Sarah M.", role: "Chicago, IL / Gala Host", text: "DJ Miss Haze made our Gala Event the talk of the town. She read the room perfectly and kept everyone dancing all night long.", rating: 5 },
+        { author: "Marcus T.", role: "Denver, CO / Sports Event Promoter", text: "Incredible energy and professionalism. She knows exactly how to get the party started and keep it going!", rating: 5 },
+        { author: "Elena R.", role: "Dallas, TX / Event Planner", text: "I've worked with many DJs over the years, and DJ Miss Haze is truly one of the best. Professional, talented, and always brings the perfect vibe.", rating: 5 },
       ],
     },
   },

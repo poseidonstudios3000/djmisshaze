@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development node --env-file=.env --import tsx/esm server/index.ts",
+    "dev:preview": "vite --config vite.config.ts --port 3000 --open",
     "build": "tsx script/build.ts",
     "build:client": "vite build --config vite.config.ts",
     "start": "NODE_ENV=production node dist/index.cjs",

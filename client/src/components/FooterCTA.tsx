@@ -33,7 +33,7 @@ export function FooterCTA() {
             data-testid="link-book-now"
           >
             <Calendar className="w-3 h-3" />
-            <span>Book Now</span>
+            <span>Inquire Now</span>
           </a>
 
           <a
