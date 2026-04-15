@@ -49,6 +49,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <IconGradientDefs />
+          <div style={{position:"fixed",top:0,left:0,right:0,zIndex:9999,background:"#ff00aa",color:"#fff",textAlign:"center",padding:"6px",fontSize:"14px",fontWeight:700}}>DEV PREVIEW — TEST BANNER</div>
           <Router />
           <Toaster />
         </TooltipProvider>
