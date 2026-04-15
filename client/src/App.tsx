@@ -1,5 +1,5 @@
 import { Switch, Route } from "wouter";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -43,13 +43,39 @@ function IconGradientDefs() {
   );
 }
 
+const DEV_BANNER_H = 28;
+
+function DevBanner() {
+  const [isDev, setIsDev] = useState(false);
+  useEffect(() => {
+    const host = window.location.hostname;
+    const prodHost = host === "djmisshaze.com" || host === "www.djmisshaze.com";
+    const dev = !prodHost;
+    setIsDev(dev);
+    document.documentElement.style.setProperty("--dev-banner-h", dev ? `${DEV_BANNER_H}px` : "0px");
+  }, []);
+  if (!isDev) return null;
+  return (
+    <div
+      style={{
+        position: "fixed", top: 0, left: 0, right: 0, height: DEV_BANNER_H,
+        zIndex: 100, background: "#ff00aa", color: "#fff",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        fontSize: 12, fontWeight: 700, letterSpacing: "0.05em",
+      }}
+    >
+      DEV PREVIEW
+    </div>
+  );
+}
+
 function App() {
   return (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <IconGradientDefs />
-          <div style={{position:"fixed",top:0,left:0,right:0,zIndex:9999,background:"#ff00aa",color:"#fff",textAlign:"center",padding:"6px",fontSize:"14px",fontWeight:700}}>DEV PREVIEW — TEST BANNER</div>
+          <DevBanner />
           <Router />
           <Toaster />
         </TooltipProvider>
