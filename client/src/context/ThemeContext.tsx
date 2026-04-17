@@ -21,14 +21,10 @@ function getLayoutFromUrl(): EventLayout | null {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [layout, setLayout] = useState<EventLayout>(() => {
-    const urlLayout = getLayoutFromUrl();
-    if (urlLayout) return urlLayout;
-    const saved = localStorage.getItem("dj-layout");
-    return (saved as EventLayout) || "wedding";
+    return getLayoutFromUrl() ?? "wedding";
   });
 
   useEffect(() => {
-    localStorage.setItem("dj-layout", layout);
     document.documentElement.setAttribute("data-layout", layout);
   }, [layout]);
 
