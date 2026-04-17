@@ -24,7 +24,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const urlLayout = getLayoutFromUrl();
     if (urlLayout) return urlLayout;
     const saved = localStorage.getItem("dj-layout");
-    return (saved as EventLayout) || "corporate_event";
+    return (saved as EventLayout) || "wedding";
   });
 
   useEffect(() => {
